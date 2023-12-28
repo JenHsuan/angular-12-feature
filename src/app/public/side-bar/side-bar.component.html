@@ -1,0 +1,26 @@
+<div class="sider-bar">
+  <div class="tabs">
+    <a class="title-container" href="/#/home">
+      <img src="../assets/image/angular-logo.png" alt="">
+      <div class="title">
+        {{title}}
+      </div>
+    </a>
+    <button *ngFor="let item of sideBarList"
+      [ngClass]="getRouteStyle(item)"
+      (click)="changeRoute(item)"
+      mat-button>
+      {{getRouteTitle(item)}}
+    </button>
+    <div class="footer">
+      <div>
+        - Copyright &#64; 2023,
+        <a href="https://www.linkedin.com/in/jen-hsuan-hsieh-6a13347a/">Jen-hsuan Hsieh</a>
+      </div>
+      <div>
+        - Last updated at {{updateTime}}
+      </div>
+      <div>- <a href="of_alpha@hotmail.com">Contact me</a></div>
+    </div>
+  </div>
+</div>
