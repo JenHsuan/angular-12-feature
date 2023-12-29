@@ -21,6 +21,7 @@ import { StrictModeComponent } from './strict-mode/strict-mode.component';
 import { StyictModeStrictTemplateComponent } from './strict-mode/styict-mode-strict-template/styict-mode-strict-template.component';
 import { TodoComponent } from './todo/todo.component';
 import { LanguageServiceComponent } from './language-service/language-service.component';
+import { HttpContextComponent } from './http-context/http-context.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LanguageServiceComponent } from './language-service/language-service.co
     StrictModeComponent,
     StyictModeStrictTemplateComponent,
     TodoComponent,
-    LanguageServiceComponent
+    LanguageServiceComponent,
+    HttpContextComponent
   ],
   imports: [
     BrowserModule,

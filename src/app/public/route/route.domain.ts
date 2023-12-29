@@ -11,7 +11,8 @@ export enum ROUTE_TYPE {
   STYLISH_IMPROVEMENTS = 'STYLISH_IMPROVEMENTS',
   STRICT_MODE = 'STRICT_MODE',
   LANGUAGE_SERVICE = 'LANGUAGE_SERVICE',
-  TODO = 'TODO'
+  TODO = 'TODO',
+  HTTP_CONTEXT = 'HTTP_CONTEXT'
 }
 
 export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
@@ -28,6 +29,7 @@ export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
   ['/strict-mode', ROUTE_TYPE.STRICT_MODE],
   ['/language-service', ROUTE_TYPE.LANGUAGE_SERVICE],
   ['/todo', ROUTE_TYPE.TODO],
+  ['/http-context', ROUTE_TYPE.HTTP_CONTEXT],
 ]);
 
 export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
@@ -44,4 +46,5 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.STYLISH_IMPROVEMENTS, 'New Feature - Stylish Improvements'],
   [ROUTE_TYPE.LANGUAGE_SERVICE, 'Enhancement - Angular Language Service with Ivy'],
   [ROUTE_TYPE.TODO, 'Todo list'],
+  [ROUTE_TYPE.HTTP_CONTEXT, 'New Feature - Customize HttpInterceptor through HttpContext'],
 ]);

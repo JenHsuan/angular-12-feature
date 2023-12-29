@@ -13,6 +13,7 @@ import { StylishImprovementsComponent } from './stylish-improvements/stylish-imp
 import { StrictModeComponent } from './strict-mode/strict-mode.component';
 import { TodoComponent } from './todo/todo.component';
 import { LanguageServiceComponent } from './language-service/language-service.component';
+import { HttpContextComponent } from './http-context/http-context.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -67,6 +68,10 @@ export const routes: Routes = [
   {
     path: 'language-service',
     component: LanguageServiceComponent
+  },
+  {
+    path: 'http-context',
+    component: HttpContextComponent
   }
 ];
 
