@@ -6,5 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./styict-mode-strict-template.component.scss']
 })
 export class StyictModeStrictTemplateComponent {
-  @Input() private data: number = 0;
+  //@Input() private data: number = 0;
+  @Input() data: number = 0;
 }
