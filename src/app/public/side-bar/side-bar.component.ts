@@ -10,7 +10,7 @@ import { ROUTE_TYPE, ROUTE_MAP, TYPE_TITLE_MAP } from '../route/route.domain';
 })
 export class SideBarComponent {
   title = 'Notes of Angular v12';
-  updateTime = '2023/12/28';
+  updateTime = '2023/12/29';
   selectedRoute = ROUTE_TYPE.HOME;
   route: string;
 
@@ -18,17 +18,22 @@ export class SideBarComponent {
     ROUTE_TYPE.MIGRATIONS,
     ROUTE_TYPE.BREAKING_CHANGE,
     ROUTE_TYPE.DEPRECATIONS,
-    ROUTE_TYPE.NOTES,
     ROUTE_TYPE.DOCUMENTS,
     ROUTE_TYPE.I18N_TRANSITION,
+    ROUTE_TYPE.NULLISH_COALESCING,
+    ROUTE_TYPE.STYLISH_IMPROVEMENTS,
+    ROUTE_TYPE.STRICT_MODE,
+    ROUTE_TYPE.LANGUAGE_SERVICE,
+    ROUTE_TYPE.NOTES,
+    ROUTE_TYPE.LEARNING_RESOURCE,
+    ROUTE_TYPE.TODO
   ];
 
   constructor(
     private location: Location, 
     private router: Router
   ) {
-    router.events.subscribe((val) => {
-      console.log(val)
+    router.events.subscribe(_ => {
       if(location.path() != ''){
         const slices = location.path().split('/');
         this.route = `/${slices[1]}`;

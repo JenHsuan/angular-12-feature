@@ -6,7 +6,58 @@
     <div class="description-container">
       <div class="item">
         The legacy i18n message ID is not stable when there are insignificant changes, such as to whitespace. 
-        There are tools in v12 to migrate the legacy localization IDs to ID from the latesst algorithm.
+        The ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
+      </div>
+      <div class="itme">
+      There a few steps to migarte the legacy localization IDs
+      </div>
+      <div class="item">
+        <ol>
+          <li>Install the localize package.
+            <div>
+              <pre>
+                <code
+                  [highlight]="preparation"
+                  [languages]="['typescript']"  
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+          <li>Generate the migration file.
+            <div>
+              <pre>
+                <code
+                  [highlight]="generateJson"
+                  [languages]="['typescript']"  
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+          <li>Update the IDs according to the migration file
+            <div>
+              <pre>
+                <code
+                  [highlight]="migration"
+                  [languages]="['typescript']"  
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+          <li>Append the following line to the ~/.zshrc file the terminal show "zsh: no matches found: --files=*.xlf"
+            <div>
+              <pre>
+                <code
+                  [highlight]="zshAdd"
+                  [languages]="['typescript']"  
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </app-section-container>
@@ -19,6 +70,16 @@
         <li>
           <a href="https://v12.angular.io/guide/migration-legacy-message-id">
             Migrating legacy localization IDs
+          </a>
+        </li>
+        <li>
+          <a href="https://angular.io/guide/i18n-common-add-package">
+            Add the localize package
+          </a>
+        </li>
+        <li>
+          <a href="https://blog.csdn.net/qfpkzheng/article/details/120231185">
+            解决使用zsh中no matches found: *的问题
           </a>
         </li>
       </ul>

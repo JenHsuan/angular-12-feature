@@ -9,21 +9,7 @@ import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
 export class NotesComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.NOTES);
 
-  routeLinkCancel = `
-  <a [routerLink]="linkEnabled ? 'path' : null">Link</a>
-  `;
-
-  nullValidator = `
-  <input name="firstName" ngModel [maxlength]="null">
-  `;
-
-  cancelRoute = `
-  @NgModule({
-    imports: [RouterModule.forRoot(
-      routes, 
-      { canceledNavigationResolution: 'computed' },
-    )],
-    exports: [RouterModule]
-  })
+  ngBuildMigration = `
+  ng update @angular/cli — migrate-only production-by-default
   `;
 }

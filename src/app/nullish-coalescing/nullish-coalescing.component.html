@@ -1,0 +1,46 @@
+<div class="base-container">
+  <div class="page-title">{{ title }}</div>
+
+  <app-section-container>
+    <div class="title">Description</div>
+    <div class="description-container">
+      <div class="item">
+      In V12, we are allowed to use the Nullish Coalescing on the template. 
+      We usually use the ternary operator to check if the value is null or undefined.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="legazyCode"
+          language="typescript">
+        </app-code-container>
+      </div>
+      <div class="item">
+        In v12, we can use the following code instead.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="newCode"
+          language="typescript">
+        </app-code-container>
+      </div>
+    </div>
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title">Demo</div>
+    <div class="demo-container">
+      <div class="item">
+        Legacy syntax:
+      </div>
+      <div class="item">
+        {{age !== null && age !== undefined ? age : calculateAge() }}
+      </div>
+      <div class="item">
+        New syntax:
+      </div>
+      <div class="item">
+        {{ age ?? calculateAge() }}
+      </div>
+    </div>
+  </app-section-container>
+</div>

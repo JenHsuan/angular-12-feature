@@ -3,13 +3,36 @@
   <app-section-container>
     <div class="title">Description</div>
     <div class="description-container">
+      <div class="item">
+        <ul>
+          <li>
+            ng build defaults to production for the new v12 project. 
+            For the legacy project, we have to migrate the project by using the following command.
+            <div class="item">
+              <app-code-container
+                [code]="ngBuildMigration"
+                language="typescript">
+              </app-code-container>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </app-section-container>
   
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>
-    <div class="description-container">
+    <div class="reference-container">
+      <div class="item">
+        <ul>
+          <li>
+            <a href="https://blog.angular.io/upcoming-improvements-to-angular-library-distribution-76c02f782aa4">
+              Upcoming improvements to Angular library distribution
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </app-section-container>
 </div>
