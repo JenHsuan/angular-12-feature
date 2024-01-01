@@ -6,7 +6,7 @@
   </div>
 
   <app-section-container>
-    <div class="title">Description</div>
+    <div class="title" id="description">Description</div>
     <div class="description-container">
       <div class="item">
         <ol>
@@ -72,6 +72,15 @@
               In the following example, the child component won't print any logs until the items change.
             </div>
             <div class="item">
+              <app-code-container
+                [code]="emitDistinctChangesOnly"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+            <div class="item">
+              Please open the developer console. We won't see any logs until we click the add button.
+            </div>
+            <div class="item">
               <div class="demo-container">
                 <button (click)="add()">add</button>
                 <app-deprecations-content-children #itemWrapper>
@@ -80,12 +89,6 @@
                   </div>
                 </app-deprecations-content-children>
               </div>
-            </div>
-            <div class="item">
-              <app-code-container
-                [code]="emitDistinctChangesOnly"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
             </div>
           </li>
         </ol>
@@ -100,7 +103,7 @@
 
   <!-- reference -->
   <app-section-container>
-    <div class="title">Reference</div>
+    <div class="title" id="reference">Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>

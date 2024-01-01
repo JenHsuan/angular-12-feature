@@ -5,7 +5,7 @@
     </header>
     <ul>
       <li *ngFor="let title of titles">
-        <a href="" #menu>{{ title }}</a>
+        <a [href]="getHash(title)" #menu>{{ title }}</a>
       </li>
     </ul>  
   </nav>

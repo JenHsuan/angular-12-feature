@@ -32,4 +32,9 @@ export class DocReviewerContainerComponent {
     const bounding = elem.nativeElement.getBoundingClientRect();
     return (bounding.top < 0);
   }
+
+  getHash(title: string) {
+    return `#${title.replace(/\s/g, '').toLowerCase()}`;
+  }
+  test ='123'
 }

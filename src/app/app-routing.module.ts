@@ -38,6 +38,10 @@ export const routes: Routes = [
     component: DeprecationsComponent
   },
   {
+    path: 'deprecations#:id',
+    component: DeprecationsComponent
+  },
+  {
     path: 'documents',
     component: DocumentsComponent
   },
