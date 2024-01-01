@@ -11,7 +11,7 @@ export class MigrationsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.MIGRATIONS);
 
   instruction = `
-  npx @angular/cli@12 new Angular13Project
+  npx @angular/cli@12 new Angular12Project
   `;
 
   updateInstruction = `

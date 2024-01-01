@@ -30,7 +30,7 @@ export class NavigationButtonContainerComponent {
   ngAfterViewInit() {
     const list = [...ROUTE_MAP.keys()];
         const index = list.findIndex(path => path === this.currentRoute);
-        if (index - 1 >= 0) {
+        if (index - 1 >= 1) {
           this.previous?.nativeElement.classList.add("active");
         } else {
           this.previous?.nativeElement.classList.remove("active");
@@ -46,7 +46,7 @@ export class NavigationButtonContainerComponent {
   previousPage() {
     const list = [...ROUTE_MAP.keys()];
     const index = list.findIndex(path => path === this.currentRoute);
-    if (index - 1 >= 0) {
+    if (index - 1 >= 1) {
       const nextPage = list[index - 1];
       this.router.navigate([nextPage]);
     }

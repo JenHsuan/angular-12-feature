@@ -17,6 +17,7 @@ export enum ROUTE_TYPE {
 
 export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
   ['/home', ROUTE_TYPE.HOME],
+  ['/documents', ROUTE_TYPE.DOCUMENTS],
   ['/migrations', ROUTE_TYPE.MIGRATIONS],
   ['/breaking-changes', ROUTE_TYPE.BREAKING_CHANGE],
   ['/deprecations', ROUTE_TYPE.DEPRECATIONS],
@@ -27,7 +28,6 @@ export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
   ['/strict-mode', ROUTE_TYPE.STRICT_MODE],
   ['/language-service', ROUTE_TYPE.LANGUAGE_SERVICE],
   ['/notes', ROUTE_TYPE.NOTES],
-  ['/documents', ROUTE_TYPE.DOCUMENTS],
   ['/learning-resource', ROUTE_TYPE.LEARNING_RESOURCE],
   ['/todo', ROUTE_TYPE.TODO],
 ]);
@@ -50,6 +50,7 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
 ]);
 
 export const sideBarList = [
+  ROUTE_TYPE.DOCUMENTS,
   ROUTE_TYPE.MIGRATIONS,
   ROUTE_TYPE.BREAKING_CHANGE,
   ROUTE_TYPE.DEPRECATIONS,
@@ -60,7 +61,6 @@ export const sideBarList = [
   ROUTE_TYPE.STRICT_MODE,
   ROUTE_TYPE.LANGUAGE_SERVICE,
   ROUTE_TYPE.NOTES,
-  ROUTE_TYPE.DOCUMENTS,
   ROUTE_TYPE.LEARNING_RESOURCE,
   ROUTE_TYPE.TODO
 ];
