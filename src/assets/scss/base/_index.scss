@@ -83,7 +83,10 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    line-height: 2.5em;
+    .content {
+      max-width: 20em;
+    }
+
     app-navigation-button-container {
       display: flex;
       align-items: center;
