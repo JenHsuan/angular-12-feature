@@ -5,25 +5,33 @@
     </app-navigation-button-container>
   </div>
 
-  <div class="description-container">
-    <div class="item">
-      The following documents are the major materials of this website.
+  <app-section-container>
+    <div class="title">Description</div>
+    <div class="description-container">
+      <div class="item">
+        This website is based on Angular 12 and it's inspired by the following documents.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            <a href="https://v12.angular.io/docs">
+              Angular Doc v12
+            </a>
+          </li>
+          <li>
+            <a href="https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49">
+              Angular v12 is now Available (Angular blog)
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="item">
-      <ul>
-        <li>
-          <a href="https://v12.angular.io/docs">
-            Angular Doc v12
-          </a>
-        </li>
-        <li>
-          <a href="https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49">
-            Angular v12 is now Available (Angular blog)
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  </app-section-container>
+
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
 </div>
 
 <app-footer>

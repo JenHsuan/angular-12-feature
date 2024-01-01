@@ -172,3 +172,10 @@
     }
   }
 }
+
+@media screen and (max-width: 1300px) {
+  .base-container {
+    max-width: 100%;
+    min-height: calc(100vh - 100px);
+  }
+}

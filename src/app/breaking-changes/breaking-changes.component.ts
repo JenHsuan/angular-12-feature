@@ -90,5 +90,72 @@ export class BreakingChangesComponent {
 
   unused = `
   let [_first, second] = getValues();
-`;
+  `;
+
+  abstractConstructSignaturesLegacy = `
+  abstract class Shape {
+    abstract getArea(): number;
+  }
+   
+  interface HasArea {
+    getArea(): number;
+  }
+   
+  function makeSubclassWithArea(Ctor: new () => HasArea) {
+    return class extends Ctor {
+      getArea() {
+        return 42
+      }
+    };
+  }
+   
+  let MyShape = makeSubclassWithArea(Shape);
+  //                                 ~~~~ Error!
+  //Argument of type 'typeof Shape' is not assignable to parameter of type 'new () => HasArea'.
+  //Cannot assign an abstract constructor type to a non-abstract constructor type.
+  `;
+
+  abstractConstructSignaturesNew = `
+  abstract class Shape {
+    abstract getArea(): number;
+  }
+   
+  interface HasArea {
+    getArea(): number;
+  }
+   
+  function makeSubclassWithArea(Ctor: abstract new () => HasArea) {
+    return class extends Ctor {
+      getArea() {
+        return 42
+      }
+    };
+  }
+   
+  let MyShape = makeSubclassWithArea(Shape);
+  `;
+
+  mixin = `
+  abstract class SuperClass {
+    abstract someMethod(): void;
+    badda() {}
+  }
+ 
+  type AbstractConstructor<T> = abstract new (...args: any[]) => T
+ 
+  function withStyles<T extends AbstractConstructor<object>>(Ctor: T) {
+    abstract class StyledClass extends Ctor {
+        getStyles() {
+            // ...
+        }
+    }
+    return StyledClass;
+  }
+ 
+  class SubClass extends withStyles(SuperClass) {
+    someMethod() {
+        this.someMethod()
+    }
+  }
+  `;
 }

@@ -20,5 +20,11 @@
     border: 1px solid oklch(51.74% .25453048882711515 315.26261625862725);
     color: #000;
     font-weight: 500;
+    &:hover {
+      font-weight: 700;
+      color: #cecece;
+      opacity: .9;
+      background-color: oklch(51.74% .25453048882711515 315.26261625862725);
+    }
   }
 }

@@ -25,7 +25,11 @@
               <ul>
                 <li>
                   <div class="item">
-                    Smarter Type Alias Preservation: the compiler keeps track of the original name for a type alias in more places. Reducing the size of error messages and hover hints.
+                    <b>
+                      Smarter Type Alias Preservation: 
+                    </b>
+                  </div>
+                  <div class="item">The compiler keeps track of the original name for a type alias in more places. Reducing the size of error messages and hover hints.
                     <a href="https://www.typescriptlang.org/play?ts=4.2.0-beta#code/PTAEBUE8AcFNQIYBsCWCDOt2gCYoGb6wBOo+xA9gLagoB2ALifggMZa12gMAWCD3HrEiJisOgHIBAcwCuCYgkaxYObhQBQIUAGsV0QbBSk6CKvAyGRC+LMxrelWdJ4VZA3vFbVoKJCQA6UABJLmgFBgAaQRR0LTBYxG5FHFgAWgpCUAouAHc+GRQANw5PGk9jMn8ADxQAIz8UBkhouvdDXApcunQUVPjabF5+UHRqWAYUc2woOABlVmIUaAF0V1zsJWy6gCtYVgF6dCYENUyO03MAjQHQ0AAWAIAmaM9Qbypff1I9WGghxSsHTZfAdChLaT0ZCgS7wfDgpLNOCIVAYAb0UBUcHwaBINhYIIAJVUslY9GkHV6AC94OcSJRSNN0AhpBwlGpXCVSDx6Ax0NcNEj4HM+MiALwaUCgAA+oAA3rp6DgAFygABEZOIrH8aoA3KAUig7Kq6LIqHUSKAAL6SmXyxV0FXq9AAR3kYj1oxQNJNZotpBtUtlCp0StVarEByU0h1+tyfV4vvNJH1QhQLgYSf91t1NyFoAAcmZVKAxfbYarjks6BSrbmBgAFMRFFBudBISCqkUIOAaVLamygfyrUWwLuj+vaAsUd58GvwTxiVrtAigSBudQUYFvWC1Y7k0aj0CyOitrjs0C7piO2hRAaeLizWALJYrY-2dSgCRICiYCRgiEoSQGFi2VG5tCbWAWzbDtVRDMN1U1bVYE9Q1jRhP0UzteDHXDV13RQ-VqTHDDk2IfVgwdJ0I32Bho1jUB4xwRNSP9VMjAzLMsNlE9UnwehVD7fY8TEIcJmyFYz2Qbs4HHHt4B4x1YH4uhVEnMBIOguxYPtUNcMQ4xkNQ04jXQLjyOwqi8LdGxPWI8yKN0hCaKjGsGKYljTTI9j0x4TNWO448lJUwT+xE+BhxA8wcBkkjYtAAAyQtixwdTQE01ttM7UAAAocOopCGLQsyAosotooASjtPKrOdGyPSI70SK8tjksq6r8vDSM6LcwjGITHgHNANNONK-VytUKrFL4gScCEgdRMiihJJyZAJpi0dVRy+KkvWqagpm1TUtAbRtqPXaUv23jlNmoA">
                       (reference)
                     </a>
@@ -39,7 +43,11 @@
                 </li>
                 <li>
                   <div class="item">
-                    Leading/Middle Rest Elements in Tuple Types: rest elements specifically been expanded in how they can be used.
+                    <b>
+                    Leading/Middle Rest Elements in Tuple Types: 
+                    </b>
+                  </div>
+                  <div class="item">rest elements specifically been expanded in how they can be used.
                     <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/">
                       (reference)
                     </a>
@@ -53,7 +61,12 @@
                 </li>
                 <li>
                   <div class="item">
-                    noPropertyAccessFromIndexSignature: could only get properties declared by them with “bracketed” element access syntax like person["name"]
+                    <b>
+                    --noPropertyAccessFromIndexSignature:
+                    </b>
+                  </div>
+                  <div class="item">
+                    could only get properties declared by them with “bracketed” element access syntax like person["name"]
                     <a href="https://www.cnblogs.com/laggage/p/explain-some-options-of-tsconfig.html">
                       (reference)
                     </a>
@@ -76,7 +89,9 @@
                 </li>
                 <li>
                   <div class="item">
-                    Destructured Variables Can Be Explicitly Marked as Unused: 
+                    <b>
+                      Destructured Variables Can Be Explicitly Marked as Unused:
+                    </b> 
                   </div>
                   <div class="item">
                     Previously, if _first was never used later on, TypeScript would issue an error under noUnusedLocals. Now, TypeScript will recognize that _first was intentionally named with an underscore because there was no intent to use it.
@@ -87,6 +102,43 @@
                   <div class="item">
                     <app-code-container
                       [code]="unused"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    <b>
+                      abstract Construct Signatures:
+                      <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#abstract-construct-signatures">
+                        (reference)
+                      </a>
+                    </b>
+                  </div>
+                  <div class="item">
+                    We can not assign an abstract class to anything that expects a construct signature. It is overly-restrictive in case we want to write a subclass of Ctor.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="abstractConstructSignaturesLegacy"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                  <div class="item">
+                    In v12, we are allowed to specify an abstract modifier on constructor signatures.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="abstractConstructSignaturesNew"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                  <div class="item">
+                    The benefit is that it allows us to write mixin factories in a way that supports abstract classes. For example, in the following code snippet, we’re able to use the mixin function withStyles with the abstract class SuperClass.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="mixin"
                       [languages]="['typescript', 'html']">
                     </app-code-container>
                   </div>
@@ -109,8 +161,8 @@
   </app-section-container>
 
   <app-doc-reviewer-container
-  [sections]="sections"
-  [titles]="titles">
+    [sections]="sections"
+    [titles]="titles">
   </app-doc-reviewer-container>
 
   <!-- reference -->
@@ -119,6 +171,11 @@
     <div class="reference-container">
       <div class="item">
         <ul>
+          <li>
+            <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#stricter-checks-for-the-in-operator">
+              TypeScript 4.2
+            </a>
+          </li>
           <li>
             <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/">
               Announcing TypeScript 4.2

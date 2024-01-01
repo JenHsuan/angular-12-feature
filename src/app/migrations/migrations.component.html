@@ -12,26 +12,20 @@
         <ol>
           <li>
             Create a new project in Angular 12 with the following command.
-            <div>
-              <pre>
-                <code
-                  [highlight]="instruction"
-                  [languages]="['html']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="instruction"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
           <li>
             Update the existed project to Angular 12 with the following command.
-            <div>
-              <pre>
-                <code
-                  [highlight]="updateInstruction"
-                  [languages]="['html']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="updateInstruction"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
         </ol>

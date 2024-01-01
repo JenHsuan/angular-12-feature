@@ -19,47 +19,35 @@
       <div class="item">
         <ol>
           <li>Install the localize package.
-            <div>
-              <pre>
-                <code
-                  [highlight]="preparation"
-                  [languages]="['typescript']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="preparation"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
           <li>Generate the migration file.
-            <div>
-              <pre>
-                <code
-                  [highlight]="generateJson"
-                  [languages]="['typescript']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="generateJson"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
           <li>Update the IDs according to the migration file
-            <div>
-              <pre>
-                <code
-                  [highlight]="migration"
-                  [languages]="['typescript']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="migration"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
           <li>Append the following line to the ~/.zshrc file the terminal show "zsh: no matches found: --files=*.xlf"
-            <div>
-              <pre>
-                <code
-                  [highlight]="zshAdd"
-                  [languages]="['typescript']"  
-                  [lineNumbers]="true"
-                ></code>
-              </pre>
+            <div class="item">
+              <app-code-container
+                [code]="zshAdd"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
         </ol>
