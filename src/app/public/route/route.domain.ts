@@ -20,16 +20,16 @@ export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
   ['/migrations', ROUTE_TYPE.MIGRATIONS],
   ['/breaking-changes', ROUTE_TYPE.BREAKING_CHANGE],
   ['/deprecations', ROUTE_TYPE.DEPRECATIONS],
-  ['/notes', ROUTE_TYPE.NOTES],
-  ['/documents', ROUTE_TYPE.DOCUMENTS],
-  ['/i18n-transition', ROUTE_TYPE.I18N_TRANSITION],
+  ['/http-context', ROUTE_TYPE.HTTP_CONTEXT],
   ['/nullish-coalescing', ROUTE_TYPE.NULLISH_COALESCING],
-  ['/learning-resource', ROUTE_TYPE.LEARNING_RESOURCE],
   ['/stylish-improvements', ROUTE_TYPE.STYLISH_IMPROVEMENTS],
+  ['/i18n-transition', ROUTE_TYPE.I18N_TRANSITION],
   ['/strict-mode', ROUTE_TYPE.STRICT_MODE],
   ['/language-service', ROUTE_TYPE.LANGUAGE_SERVICE],
+  ['/notes', ROUTE_TYPE.NOTES],
+  ['/documents', ROUTE_TYPE.DOCUMENTS],
+  ['/learning-resource', ROUTE_TYPE.LEARNING_RESOURCE],
   ['/todo', ROUTE_TYPE.TODO],
-  ['/http-context', ROUTE_TYPE.HTTP_CONTEXT],
 ]);
 
 export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
@@ -37,7 +37,7 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.HOME, 'Notes of Angular v12'],
   [ROUTE_TYPE.BREAKING_CHANGE, 'Breaking Changes'],
   [ROUTE_TYPE.DEPRECATIONS, 'Deprecations'],
-  [ROUTE_TYPE.NOTES, 'Other Features'],
+  [ROUTE_TYPE.NOTES, 'Minor Features'],
   [ROUTE_TYPE.DOCUMENTS, 'Official Documents'],
   [ROUTE_TYPE.LEARNING_RESOURCE, 'Official New Learning Resources'],
   [ROUTE_TYPE.I18N_TRANSITION, 'Bugfix - i18n message ID transition'],
@@ -46,5 +46,21 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.STYLISH_IMPROVEMENTS, 'New Feature - Stylish Improvements'],
   [ROUTE_TYPE.LANGUAGE_SERVICE, 'Enhancement - Angular Language Service with Ivy'],
   [ROUTE_TYPE.TODO, 'Todo list'],
-  [ROUTE_TYPE.HTTP_CONTEXT, 'New Feature - Customize HttpInterceptor through HttpContext'],
+  [ROUTE_TYPE.HTTP_CONTEXT, 'New Feature - Pass Metadata to Interceptors'],
 ]);
+
+export const sideBarList = [
+  ROUTE_TYPE.MIGRATIONS,
+  ROUTE_TYPE.BREAKING_CHANGE,
+  ROUTE_TYPE.DEPRECATIONS,
+  ROUTE_TYPE.HTTP_CONTEXT,
+  ROUTE_TYPE.NULLISH_COALESCING,
+  ROUTE_TYPE.STYLISH_IMPROVEMENTS,
+  ROUTE_TYPE.I18N_TRANSITION,
+  ROUTE_TYPE.STRICT_MODE,
+  ROUTE_TYPE.LANGUAGE_SERVICE,
+  ROUTE_TYPE.NOTES,
+  ROUTE_TYPE.DOCUMENTS,
+  ROUTE_TYPE.LEARNING_RESOURCE,
+  ROUTE_TYPE.TODO
+];

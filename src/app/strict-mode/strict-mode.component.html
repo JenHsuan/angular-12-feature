@@ -1,5 +1,9 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="title">Description</div>
@@ -31,7 +35,7 @@
             <div class="item">
               <app-code-container
                 [code]="forceConsistentCasingInFileNames"
-                language="html">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
             <div class="item">
@@ -40,7 +44,7 @@
             <div class="item">
               <app-code-container
                 [code]="forceConsistentCasingInFileNamesErrorMessage"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
@@ -51,7 +55,7 @@
             <div class="item">
               <app-code-container
                 [code]="noImplicitReturns"
-                language="html">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
             <div class="item">
@@ -60,7 +64,7 @@
             <div class="item">
               <app-code-container
                 [code]="noImplicitReturnsErrorMessage"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
@@ -72,7 +76,7 @@
             <div class="item">
               <app-code-container
                 [code]="noFallthroughCasesInSwitch"
-                language="html">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
             <div class="item">
@@ -81,7 +85,7 @@
             <div class="item">
               <app-code-container
                 [code]="noFallthroughCasesInSwitchErrorMessage"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
@@ -89,6 +93,11 @@
       </div>
     </div>
   </app-section-container>
+
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
 
   <app-section-container>
     <div class="title">Angular Compiler Flags</div>
@@ -102,7 +111,7 @@
             <div class="item">
               <app-code-container
                 [code]="strictTemplates"
-                language="html">
+                [languages]="['typescript']">
               </app-code-container>
             </div>
             <div class="item">
@@ -111,7 +120,7 @@
             <div class="item">
               <app-code-container
                 [code]="strictTemplatesErrorMessage"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
@@ -127,7 +136,7 @@
             <div class="item">
               <app-code-container
                 [code]="strictInputAccessModifiers"
-                language="html">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
             <div class="item">
@@ -136,7 +145,7 @@
             <div class="item">
               <app-code-container
                 [code]="strictInputAccessModifiersErrorMessage"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
@@ -189,3 +198,6 @@
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

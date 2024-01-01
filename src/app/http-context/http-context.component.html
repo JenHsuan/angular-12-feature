@@ -1,14 +1,98 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="title">Description</div>
     <div class="description-container">
       <div class="item">
-      In V12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
-      <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>
+        Currently there is no way to configure interceptors in http client on per request basis. In V12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
+        <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>
+      </div>
+      <div class="item">
+        Suppose that we have an interceptor to alert the error message if the proxy is not ready.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            All response will be applied to this interceptor.
+          </li>
+          <li>
+            How do we bypass this interceptor for some requests?
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="legacyInterceptor"
+          [languages]="['typescript', 'html']">
+        </app-code-container>
       </div>
     </div>
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title">Pass Metadata to Interceptors</div>
+    <div class="description-container">
+      <div class="item">
+        There are a few steps to pass metadata to the interceptor.
+      </div>
+      <div class="item">
+        <ol>
+          <li>
+            <div class="item">Create a HttpContextToken</div>
+            <div class="item">
+              <app-code-container
+                [code]="httpContextToken"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">Update the interceptor</div>
+            <div class="item">
+              <app-code-container
+                [code]="newInterceptor"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">Update the HTTP service</div>
+            <div class="item">
+              <app-code-container
+                [code]="httpService"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
+
+  <app-doc-reviewer-container
+  [sections]="sections"
+  [titles]="titles">
+  </app-doc-reviewer-container>
+
+  <app-section-container>
+    <div class="title">Demo</div>
+    <div class="demo-container">
+      <div class="button-container">
+        <button class="export" (click)="printFromServer(true)">
+          Export PDF from server 
+        </button>    
+      </div>
+      <div class="button-container">
+        <button class="export" (click)="printFromServer(false)">
+          Export PDF from server (alert)
+        </button>    
+      </div>
+    </div>  
   </app-section-container>
 
   <!-- reference -->
@@ -17,6 +101,16 @@
     <div class="reference-container">
       <div class="item">
         <ul>
+          <li>
+            <a href="https://itnext.io/bypass-angular-interceptors-with-request-metadata-cf28061cda69">
+              Bypass Angular Interceptors with Request Metadata
+            </a>
+          </li>
+          <li>
+            <a href="https://fullstackladder.dev/blog/2017/10/29/angular-advanced-handle-http-request-with-interceptor/">
+              [Angular 進階議題]使用HttpInterceptort為HttpClient Request打點前後大小事
+            </a>
+          </li>
           <li>
             <a href="https://fullstackladder.dev/blog/2021/11/07/using-http-context-passing-data-to-http-interceptor/">
               使用 HttpContext 傳遞資料給 HttpInterceptor
@@ -27,3 +121,6 @@
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

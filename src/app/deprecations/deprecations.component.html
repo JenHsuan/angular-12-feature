@@ -1,5 +1,9 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="title">Description</div>
@@ -15,17 +19,84 @@
             </div>
           </li>
           <li>
-            <div>
-              Deprecate View Engine and legacy libraries still be compatible with Ivy with the help of ngcc. The View Enginee and ngcc will be removed in 
-              <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
-                v13
-              </a>
+            <div class="item">
+              The View Engine is deprecated and new projects will use Ivy by default
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    The --enableIvy could be removed
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    The View Enginee is the previous rendering and compilation pipeline
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    The ngcc is the way to compile View Engine libraries so that Ivy applications can consume them
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    The View Enginee and ngcc will be removed in 
+                    <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
+                      v13
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    For library developers, they could still update the tsconfig.lib.prod.json if they're not ready yey
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="tsconfigProd"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              The emitDistinctChangesOnly option of 
+              <a href="https://angular.io/api/core/ContentChildren">ContentChildren</a>
+               is deprecated. When this option is false, the change observable will emit even there is no changes.
+            The default value is true. 
+            </div>
+            <div class="item">
+              In the following example, the child component won't print any logs until the items change.
+            </div>
+            <div class="item">
+              <div class="demo-container">
+                <button (click)="add()">add</button>
+                <app-deprecations-content-children #itemWrapper>
+                  <div *ngFor="let item of items" #item>
+                    {{ item }}
+                  </div>
+                </app-deprecations-content-children>
+              </div>
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="emitDistinctChangesOnly"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
             </div>
           </li>
         </ol>
       </div>
     </div>
   </app-section-container>
+
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
 
   <!-- reference -->
   <app-section-container>
@@ -43,3 +114,6 @@
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

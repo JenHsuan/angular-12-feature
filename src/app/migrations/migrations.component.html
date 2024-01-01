@@ -1,5 +1,9 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="title">Description</div>
@@ -35,6 +39,11 @@
     </div>
   </app-section-container>
 
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
+
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>
@@ -42,10 +51,13 @@
       <div class="item">
         <ul>
           <li>
-            <a href="https://update.angular.io/?v=12.0-13.0"> Angular Update Guide</a>
+            <a href="https://update.angular.io/?v=11.0-12.0"> Angular Update Guide</a>
           </li>
         </ul>
       </div>
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { ROUTE_TYPE, ROUTE_MAP, TYPE_TITLE_MAP } from '../route/route.domain';
+import { ROUTE_TYPE, ROUTE_MAP, TYPE_TITLE_MAP, sideBarList } from '../route/route.domain';
 
 @Component({
   selector: 'app-side-bar',
@@ -10,25 +10,9 @@ import { ROUTE_TYPE, ROUTE_MAP, TYPE_TITLE_MAP } from '../route/route.domain';
 })
 export class SideBarComponent {
   title = 'Notes of Angular v12';
-  updateTime = '2023/12/29';
   selectedRoute = ROUTE_TYPE.HOME;
-  route: string;
-
-  sideBarList = [
-    ROUTE_TYPE.MIGRATIONS,
-    ROUTE_TYPE.BREAKING_CHANGE,
-    ROUTE_TYPE.DEPRECATIONS,
-    ROUTE_TYPE.DOCUMENTS,
-    ROUTE_TYPE.HTTP_CONTEXT,
-    ROUTE_TYPE.NULLISH_COALESCING,
-    ROUTE_TYPE.STYLISH_IMPROVEMENTS,
-    ROUTE_TYPE.I18N_TRANSITION,
-    ROUTE_TYPE.STRICT_MODE,
-    ROUTE_TYPE.LANGUAGE_SERVICE,
-    ROUTE_TYPE.NOTES,
-    ROUTE_TYPE.LEARNING_RESOURCE,
-    ROUTE_TYPE.TODO
-  ];
+  
+  sideBarList = sideBarList;
 
   constructor(
     private location: Location, 
@@ -37,10 +21,8 @@ export class SideBarComponent {
     router.events.subscribe(_ => {
       if(location.path() != ''){
         const slices = location.path().split('/');
-        this.route = `/${slices[1]}`;
-        this.selectedRoute = ROUTE_MAP.get(this.route) || ROUTE_TYPE.HOME;
-      } else {
-        this.route = 'Home';
+        let route = `/${slices[1]}`;
+        this.selectedRoute = ROUTE_MAP.get(route) || ROUTE_TYPE.HOME;
       }
     });
   }
@@ -50,9 +32,7 @@ export class SideBarComponent {
   }
 
   changeRoute(type: ROUTE_TYPE) {
-    console.log(type)
     const path  = [...ROUTE_MAP.keys()].find(key => type === ROUTE_MAP.get(key));
-    console.log(path)
     if (path) {
       this.router.navigate([path]);
     } 

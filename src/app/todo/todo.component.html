@@ -1,5 +1,9 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="description-container">
@@ -36,12 +40,13 @@
             </a>
           </li>
           <li>
-            <a href="https://fullstackladder.dev/blog/2021/11/07/using-http-context-passing-data-to-http-interceptor/">
-              使用 HttpContext 傳遞資料給 HttpInterceptor
-            </a>
+            <a href="https://update.angular.io/?v=11.0-12.0"> Angular Update Guide</a>
           </li>
         </ul>
       </div>
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

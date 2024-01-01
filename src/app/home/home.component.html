@@ -15,25 +15,31 @@
       <div class="histories">
         <ul>
           <li>
-            <a href="https://profound-kangaroo-9db0c6.netlify.app/">- Notes of Angular v13</a>
+            <a [href]="v13Url">- Notes of Angular v13</a>
           </li>
           <li>
-            <a href="https://glistening-cupcake-ead467.netlify.app">- Notes of Angular v14</a>
+            <a [href]="v14Url">- Notes of Angular v14</a>
           </li>
           <li>
-            <a href="https://verdant-fenglisu-1b7a2d.netlify.app/">- Notes of Angular v15</a>
+            <a [href]="v15Url">- Notes of Angular v15</a>
           </li>
           <li>
-            <a href="https://marvelous-gnome-0802fa.netlify.app/">- Notes of Angular v16</a>
+            <a [href]="v16Url">- Notes of Angular v16</a>
           </li>
           <li>
-            <a href="https://chimerical-cocada-121bf6.netlify.app/">- Notes of Angular v17</a>
+            <a [href]="v17Url">- Notes of Angular v17</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="timeline-container">
-      Or check the <a href="https://daily-learning.herokuapp.com/note/angularNote">time line</a>.
+      Or check the 
+      <a [href]="timelineUrl">
+        timeline
+      </a>
     </div>
   </div>
 </div>
+
+<app-footer>
+</app-footer>

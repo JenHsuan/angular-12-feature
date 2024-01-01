@@ -1,5 +1,5 @@
 .sider-bar {
-  width: 14em;
+  width: 16em;
   background-color: #fff;
   .title {
     font-size: 1.1em;
@@ -12,10 +12,11 @@
   }
 
   .footer {
-    font-size: .7em;
-    width: 100%;
+    font-size: .8em;
+    width: 18em;
+    text-align: center;
     font-family: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    top: calc(95% - 4em);
+    top: calc(100% - 3em);
     position: absolute;
     margin: 0 .2em;
     padding: 0 .5em;
@@ -28,6 +29,7 @@
   }
 
   .tabs {
+    width: 16em;
     margin: 0 1em 0 0;
     position: fixed;
     display: flex;
@@ -37,6 +39,7 @@
     height: 100%;
     .title-container {
       display: flex;
+      justify-content: center;
       text-decoration: none;
       color: #000;
       font-size: 1.1em;
@@ -49,7 +52,7 @@
   }
       
   .tab-item {
-    width: 15em;
+    width: 17.6em;
     font-size: .9em;
     margin: 0 0.1em 0.7em 0.1em;
     padding: .3em;

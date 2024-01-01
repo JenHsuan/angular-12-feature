@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
 import { escapeHtml } from '../public/utils/utils';
+import { DeprecationsContentChildrenComponent } from './deprecations-content-children/deprecations-content-children.component';
+import { SectionContainerComponent } from '../public/section-container/section-container.component';
 
 @Component({
   selector: 'app-deprecations',
@@ -10,6 +12,24 @@ import { escapeHtml } from '../public/utils/utils';
 export class DeprecationsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.DEPRECATIONS);
   escapeHtml = escapeHtml;
+  
+  items:number[] = [];
+  cnt = 0;
+
+  @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
+  titles = ["Description", "Reference"];
+
+  constructor(private changeDetectorRef: ChangeDetectorRef){}
+
+  ngAfterViewInit() {
+    this.changeDetectorRef.detectChanges();
+  }
+  
+  add() {
+    this.items.push(this.cnt++);
+  }
 
   renderModule = `
   import 'reflect-metadata';
@@ -49,5 +69,46 @@ export class DeprecationsComponent {
   app.listen(PORT, () => {
     console.log('listening on PORT!');
   });
+  `;
+
+  emitDistinctChangesOnly = `
+  //child component
+  export class DeprecationsContentChildrenComponent {
+    @ContentChildren('item') items: QueryList<ElementRef<any>> | undefined;
+    ngAfterContentInit() {
+      this.items?.changes.subscribe(items => {
+        console.log(items)
+      });
+    }
+  }
+
+  //parent component
+  export class DeprecationsComponent {
+    cnt = 0;
+    @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
+    add() {
+      this.items.push(this.cnt++);
+    }
+  }
+
+  //parent template
+  <button (click)="add()">add</button>
+  <app-deprecations-content-children #itemWrapper>
+    <div *ngFor="let item of items" #item>
+      {{ item }}
+    </div>
+  </app-deprecations-content-children>
+  `
+
+  tsconfigProd = `
+  {
+    "extends": "./tsconfig.lib.json",
+    "compilerOptions": {
+      "declarationMap": false
+    },
+    "angularCompilerOptions": {
+      "enableIvy": false
+    }
+  }
   `;
 }

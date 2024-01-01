@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
+import { SectionContainerComponent } from '../public/section-container/section-container.component';
 //import { getName } from './demo/fileManager';
 
 @Component({
@@ -12,14 +13,23 @@ export class StrictModeComponent {
 
   data: number | undefined = 0;
 
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
+  titles = ["Description", "TypeScript Strict Mode", "Angular Compiler Flags", "Reference"];
+
+  constructor(private changeDetectorRef: ChangeDetectorRef){}
+
+  ngAfterViewInit() {
+    this.changeDetectorRef.detectChanges();
+  }
   forceConsistentCasingInFileNames = `
-  "forceConsistentCasingInFileNames": true
+  compilerOptions.forceConsistentCasingInFileNames: true
   `;
 
   forceConsistentCasingInFileNamesErrorMessage = `
   //The real file name is FileManger.ts
   import { getName } from './demo/fileManager';
-  //                      ~~~~~~~~~~~~~~~~~~~~
+  //                      ~~~~~~~~~~~~~~~~~~~~ Error!
   // Already included file name '/Users/hsiehs/Practice/Angular12Project/src/app/strict-mode/demo/fileManager.ts' differs from file name '/Users/hsiehs/Practice/Angular12Project/src/app/strict-mode/demo/FileManager.ts' only in casing.
   // The file is in the program because:
   // Imported via './demo/fileManager' from file '/Users/hsiehs/Practice/Angular12Project/src/app/strict-mode/strict-mode.component.ts'
@@ -27,12 +37,12 @@ export class StrictModeComponent {
   `;
 
   noImplicitReturns = `
-  "noImplicitReturns": true
+  compilerOptions.noImplicitReturns: true
   `;
 
   noImplicitReturnsErrorMessage = `
   export const getName = (isEnable: boolean) => {
-  //                     ~~~~~~~~~~~~~~~~~~~~~~~~
+  //                     ~~~~~~~~~~~~~~~~~~~~~~~~ Error!
   //Not all code paths return a value.ts(7030)
     if (isEnable) {
       return "demo"
@@ -49,7 +59,7 @@ export class StrictModeComponent {
  
   switch (a) {
     case 0:
-    //~~~~~
+    //~~~~~ Error!
     //Fallthrough case in switch.ts(7029)
     console.log("even");
   case 1:
@@ -58,7 +68,7 @@ export class StrictModeComponent {
   }`;
 
   strictTemplates = `
-  "strictTemplates": true
+  compilerOptions.strictTemplates: true
   `;
 
   strictTemplatesErrorMessage = `
@@ -81,7 +91,7 @@ export class StrictModeComponent {
   <div class="item">
     <app-styict-mode-strict-template 
       [data]="data">
-      //~~~~~~~~~~
+      //~~~~~~~~~~ Error!
       //Type 'number | undefined' is not assignable to type 'number'.
       //Type 'undefined' is not assignable to type 'number'.ngtsc(2322)
     </app-styict-mode-strict-template>
@@ -95,7 +105,7 @@ export class StrictModeComponent {
   strictInputAccessModifiersErrorMessage = `
   //html
   <p>{{ data }}</p>
-  //  ~~~~~~~~~~
+  //  ~~~~~~~~~~ Error!
   //Property 'data' is private and only accessible within class 'StyictModeStrictTemplateComponent'.ngtsc(2341)
 
   //component

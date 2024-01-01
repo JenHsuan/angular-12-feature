@@ -1,14 +1,19 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
 
   <app-section-container>
     <div class="title">Description</div>
     <div class="description-container">
       <div class="item">
         The legacy i18n message ID is not stable when there are insignificant changes, such as to whitespace. 
-        The ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
+        The new canonical will reduce the unnecessary translation invalidation and associated retranslation cost in applications where translations do not match due to whitespace changes for example.
       </div>
       <div class="itme">
+        The ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
       There a few steps to migarte the legacy localization IDs
       </div>
       <div class="item">
@@ -62,6 +67,11 @@
     </div>
   </app-section-container>
 
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
+  
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>
@@ -86,3 +96,6 @@
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>

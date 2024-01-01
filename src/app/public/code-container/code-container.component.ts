@@ -7,5 +7,5 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CodeContainerComponent {
   @Input() code = '';
-  @Input() language = '';
+  @Input() languages: string[];
 }

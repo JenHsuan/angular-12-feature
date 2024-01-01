@@ -22,6 +22,12 @@ import { StyictModeStrictTemplateComponent } from './strict-mode/styict-mode-str
 import { TodoComponent } from './todo/todo.component';
 import { LanguageServiceComponent } from './language-service/language-service.component';
 import { HttpContextComponent } from './http-context/http-context.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { PageInterceptorInterceptor } from './public/page-interceptor/page-interceptor.interceptor';
+import { DeprecationsContentChildrenComponent } from './deprecations/deprecations-content-children/deprecations-content-children.component';
+import { DocReviewerContainerComponent } from './public/doc-reviewer-container/doc-reviewer-container.component';
+import { FooterComponent } from './public/footer/footer.component';
+import { NavigationButtonContainerComponent } from './public/navigation-button-container/navigation-button-container.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +49,16 @@ import { HttpContextComponent } from './http-context/http-context.component';
     StyictModeStrictTemplateComponent,
     TodoComponent,
     LanguageServiceComponent,
-    HttpContextComponent
+    HttpContextComponent,
+    DeprecationsContentChildrenComponent,
+    DocReviewerContainerComponent,
+    FooterComponent,
+    NavigationButtonContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HighlightModule,
   ],
   providers: [
@@ -56,6 +67,11 @@ import { HttpContextComponent } from './http-context/http-context.component';
       useValue: {
         fullLibraryLoader: () => import('highlight.js'),
       }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PageInterceptorInterceptor,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

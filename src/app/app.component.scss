@@ -14,21 +14,6 @@
         background-color: #fff;
       }
     
-      .footer {
-        font-size: .9em;
-        font-family: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        top: calc(95% - 4em);
-        position: absolute;
-        margin: 0 .2em;
-        text-align: center;
-        span {
-          margin-right: 1em;
-        }
-        div {
-          margin-bottom: .3em;
-        };
-      }
-    
       .tabs {
         margin: 0 1em 0 0;
         position: fixed;
@@ -86,4 +71,10 @@
         }
       }
     }
+  }
+
+  .footer {
+    background-color: bisque;
+    height: 200px;
+    width: 100%;
   }

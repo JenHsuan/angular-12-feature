@@ -1,5 +1,10 @@
 <div class="base-container">
-  <div class="page-title">{{ title }}</div>
+  <div class="page-title">
+    {{ title }}
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
+  
   <app-section-container>
     <div class="title">Description</div>
     <div class="description-container">
@@ -11,18 +16,37 @@
             <div class="item">
               <app-code-container
                 [code]="ngBuildMigration"
-                language="typescript">
+                [languages]="['typescript', 'html']">
               </app-code-container>
             </div>
           </li>
           <li>
             The production version of Webpack5 support is released in v12
           </li>
+          <li>
+            <div class="item">
+              Introduce min and max validators for the template form 
+              <a href="https://github.com/angular/angular/pull/39063">
+                (pull request)
+              </a>
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="maxMinValidator"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
   </app-section-container>
   
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="titles">
+  </app-doc-reviewer-container>
+
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>
@@ -44,3 +68,6 @@
     </div>
   </app-section-container>
 </div>
+
+<app-footer>
+</app-footer>
