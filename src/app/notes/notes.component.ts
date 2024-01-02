@@ -27,4 +27,19 @@ export class NotesComponent {
   maxMinValidator = `
   <input type="number" min="30" max="100">
   `;
+
+  angularJson = `
+  "architect": {
+    "build": {
+      "builder": "@angular-builders/custom-webpack:browser",
+      "options": {
+        "customWebpackConfig": {
+          "path": "./webpack.config.js"
+        },
+      ...
+    },
+    "serve": {
+      "builder": "@angular-builders/custom-webpack:dev-server",
+      ...
+  `;
 }

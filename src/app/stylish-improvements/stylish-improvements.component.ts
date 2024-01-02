@@ -53,4 +53,49 @@ export class StylishImprovementsComponent {
   <div>
     <button class="inline-style-demo-btn">Demo</button>
   </div>`;
+
+  sassPkg = `
+  npm install --save sass
+  `;
+
+  update = `
+  ng update
+  `;
+
+  example = `
+  /**
+   * @license
+   * Copyright Google LLC All Rights Reserved.
+   *
+   * Use of this source code is governed by an MIT-style license that can be
+   * found in the LICENSE file at https://angular.io/license
+   */
+
+  // Here's an example of the before and after.
+  // BEFORE
+
+  @import '~@angular/material/theming;
+  @include mat-core();
+  $primary: mat-palette($mat-indigo);
+  $accent:  mat-palette($mat-pink);
+  $theme: mat-light-theme((
+    color: (
+      primary: $primary,
+      accent: $accent
+    )
+  ));
+  @include angular-material-theme($theme);
+  // AFTER
+  @use '~@angular/material' as mat;
+  @include mat.core();
+  $primary: mat.define-palette(palette.$indigo-palette);
+  $accent:  mat.define-palette(palette.$pink-palette);
+  $theme: mat.define-light-theme((
+    color: (
+      primary: $primary,
+      accent: $accent
+    )
+  ));
+  @include mat.all-component-themes($theme);
+  `;
 }

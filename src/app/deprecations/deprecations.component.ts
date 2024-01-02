@@ -111,4 +111,42 @@ export class DeprecationsComponent {
     }
   }
   `;
+
+  tsconfig = `
+  {
+    "compilerOptions": {
+      "module": "esnext",
+      // ...
+    },
+    "angularCompilerOptions": {
+      "enableIvy": true,
+      "allowEmptyCodegenFiles": true
+    }
+  }
+  `;
+
+  angularJson = `
+  {
+    "projects": {
+      "your-project": {
+        "architect": {
+          "build": {
+            "options": {
+              ...
+              "aot": true,
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  ngcc = `
+  "postinstall": "ngcc
+  `;
+
+  ngNew = `
+  ng new Angular12Project --enable-ivy
+  `;
 }

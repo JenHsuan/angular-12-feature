@@ -10,47 +10,61 @@
     <div class="description-container">
       <div class="item">
         The legacy i18n message ID is not stable when there are insignificant changes, such as to whitespace. 
-        The new canonical will reduce the unnecessary translation invalidation and associated retranslation cost in applications where translations do not match due to whitespace changes for example.
-      </div>
-      <div class="itme">
-        The ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
-      There a few steps to migarte the legacy localization IDs
       </div>
       <div class="item">
-        <ol>
-          <li>Install the localize package.
+        <ul>
+          <li>
             <div class="item">
-              <app-code-container
-                [code]="preparation"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              The new canonical will reduce the unnecessary translation invalidation and associated retranslation cost in applications where translations do not match due to whitespace changes for example.
             </div>
           </li>
-          <li>Generate the migration file.
+          <li>
             <div class="item">
-              <app-code-container
-                [code]="generateJson"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              After v11, new projects are automatically configured to use the new message ids
             </div>
           </li>
-          <li>Update the IDs according to the migration file
+          <li>
             <div class="item">
-              <app-code-container
-                [code]="migration"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              For the existed applications, the ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
+            </div>
+            <div class="item">
+              There a few steps to migarte the legacy localization IDs<ol>
+              <li>Install the localize package.
+                <div class="item">
+                  <app-code-container
+                    [code]="preparation"
+                    [languages]="['typescript', 'html']">
+                  </app-code-container>
+                </div>
+              </li>
+              <li>Generate the migration file.
+                <div class="item">
+                  <app-code-container
+                    [code]="generateJson"
+                    [languages]="['typescript', 'html']">
+                  </app-code-container>
+                </div>
+              </li>
+              <li>Update the IDs according to the migration file
+                <div class="item">
+                  <app-code-container
+                    [code]="migration"
+                    [languages]="['typescript', 'html']">
+                  </app-code-container>
+                </div>
+              </li>
+              <li>Append the following line to the ~/.zshrc file the terminal show "zsh: no matches found: --files=*.xlf"
+                <div class="item">
+                  <app-code-container
+                    [code]="zshAdd"
+                    [languages]="['typescript', 'html']">
+                  </app-code-container>
+                </div>
+              </li>
+            </ol>
             </div>
           </li>
-          <li>Append the following line to the ~/.zshrc file the terminal show "zsh: no matches found: --files=*.xlf"
-            <div class="item">
-              <app-code-container
-                [code]="zshAdd"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
-            </div>
-          </li>
-        </ol>
+        </ul>
       </div>
     </div>
   </app-section-container>

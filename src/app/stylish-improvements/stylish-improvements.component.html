@@ -9,32 +9,87 @@
     <div class="title" id="description">Description</div>
     <div class="description-container">
       <div class="item">
-        Angular v12 supports Inline Sass in components. It's helpful for using single file component. There are a few steps.
+        There are a few improvements of stylishment in Angular 12.
       </div>
       <div class="item">
         <ol>
-          <li>Update angular.json
+          <li>
             <div class="item">
-              <app-code-container
-                [code]="enableInlineStyle"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              Angular v12 supports Inline Sass in components. It's helpful for using single file component. Previously, Sass was only available in external resources due to the Angular compiler.
+            </div>
+            <div class="item">
+              There are a few steps.
+            </div>
+            <div class="item">
+              <ul>
+                <li>Update angular.json.
+                  <div class="item">
+                    <app-code-container
+                      [code]="enableInlineStyle"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>Update the component.
+                  <div class="item">
+                    <app-code-container
+                      [code]="componentCode"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>Update the template.
+                  <div class="item">
+                    <app-code-container
+                      [code]="htmlCode"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
             </div>
           </li>
-          <li>Update the component
+          <li>
             <div class="item">
-              <app-code-container
-                [code]="componentCode"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              Support new Sass API for Angular CDK and Angular Material code. Angular CDK and Angular Material have internally adopted Sass’s 
+              <a href="https://sass-lang.com/blog/the-module-system-is-launched/">
+                new module system
+              </a>
             </div>
-          </li>
-          <li>Update the template
             <div class="item">
-              <app-code-container
-                [code]="htmlCode"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
+              There are a few steps.
+            </div>
+            <div class="item">
+              <ul>
+                <li>Move node-sass npm package to sass. (the node-sass package is unmaintained)
+                  <div class="item">
+                    <app-code-container
+                      [code]="sassPkg"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  Upgrade it by using the following command.
+                  <div class="item">
+                    <app-code-container
+                      [code]="update"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>The following example shows the effect.
+                  <a href="https://gist.github.com/MarkTechson/6283b6a3b353f9e38964af0740e29280">
+                    (reference)
+                  </a>
+                  <div class="item">
+                    <app-code-container
+                      [code]="example"
+                      [languages]="['sass']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
             </div>
           </li>
         </ol>
@@ -63,6 +118,11 @@
         <li>
           <a href="https://blog.angular.io/the-new-state-of-css-in-angular-bec011715ee6">
             The [New] State of CSS in Angular
+          </a>
+        </li>
+        <li>
+          <a href="https://sass-lang.com/blog/the-module-system-is-launched/">
+            The Module System is Launched
           </a>
         </li>
       </ul>
