@@ -24,6 +24,8 @@ export class StylishImprovementsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.STYLISH_IMPROVEMENTS);
   titles = [
     "Introduction",
+    "Inline Sass in components",
+    "Use new Sass API for Angular CDK and Angular Material code",
     "Reference"
   ];
 
@@ -60,7 +62,7 @@ export class StylishImprovementsComponent {
 
   //for multiple styles
 
-  //this way
+  //in this way
   @Component({
     selector: 'app-stylish-improvements',
     templateUrl: './stylish-improvements.component.html',
@@ -79,7 +81,7 @@ export class StylishImprovementsComponent {
     }\`]
   })
 
-  //or this way
+  //or in this way
   @Component({
     selector: 'app-stylish-improvements',
     templateUrl: './stylish-improvements.component.html',

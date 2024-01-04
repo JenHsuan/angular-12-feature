@@ -27,6 +27,7 @@ export class StrictModeComponent {
   ngAfterViewInit() {
     this.changeDetectorRef.detectChanges();
   }
+
   forceConsistentCasingInFileNames = `
   compilerOptions.forceConsistentCasingInFileNames: true
   `;
@@ -123,4 +124,35 @@ export class StrictModeComponent {
     @Input() private data: number = 0;
   }
   `;
+
+  strictNullChecks = `
+  compilerOptions.strictNullChecks: true
+  `;
+
+  strictNullChecksErrrorMessage = `
+  declare const loggedInUsername: string;
+ 
+  const users = [
+    { name: "Oby", age: 12 },
+    { name: "Heera", age: 32 },
+  ];
+ 
+  const loggedInUser = users.find((u) => u.name === loggedInUsername);
+  console.log(loggedInUser.age);
+  //         ~~~~~~~~~~~~~~~~~~ Error!
+  //'loggedInUser' is possibly 'undefined'.
+  `;
+
+  strictPropertyInitialization = `
+  compilerOptions.strictPropertyInitialization: true
+  `;
+
+  strictPropertyInitializationErrorMessage = `
+  export class DeprecationsComponent {
+    @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
+    //                                            ~~~~~~~~~~~~ Error!
+    //Property 'itemWrapper' has no initializer and is not definitely assigned in the constructor.ts(2564)
+  }
+  `;
+
 }

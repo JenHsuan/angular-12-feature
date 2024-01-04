@@ -12,108 +12,111 @@
       <div class="item">
         <ol>
           <li>
-            <div class="item">
-              <b>
-                Angular v12 supports Inline Sass in components
-              </b>
-            </div>
-            <div class="item">
-              It's helpful for using single file component. Previously, Sass was only available in external resources due to the Angular compiler.
-            </div>
-            <div class="item">
-              There are a few steps.
-            </div>
-            <div class="item">
-              <ul>
-                <li>Update angular.json.
-                  <div class="item">
-                    <app-code-container
-                      [code]="enableInlineStyle"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>Update the component.
-                  <div class="item">
-                    <app-code-container
-                      [code]="componentCode"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>Update the template.
-                  <div class="item">
-                    <app-code-container
-                      [code]="htmlCode"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    The following result demostrate the inline CSS works. 
-                  </div>
-                  <div class="item">
-                    <button class="inline-style-demo-btn">Demo</button>
-                    <button class="inline-style-demo-btn2">Demo2</button>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            Supports Inline Sass in components
           </li>
           <li>
-            <div class="item">
-              <b>
-                Support new Sass API for Angular CDK and Angular Material code
-              </b>
-            </div>
-            <div class="item">
-              Angular CDK and Angular Material have internally adopted Sass’s 
-              <a href="https://sass-lang.com/blog/the-module-system-is-launched/">
-                new module system
-              </a>
-            </div>
-            <div class="item">
-              There are a few steps.
-            </div>
-            <div class="item">
-              <ul>
-                <li>Move node-sass npm package to sass. (the node-sass package is unmaintained)
-                  <div class="item">
-                    <app-code-container
-                      [code]="sassPkg"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>
-                  Upgrade it by using the following command.
-                  <div class="item">
-                    <app-code-container
-                      [code]="update"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>The following example shows the effect.
-                  <a href="https://gist.github.com/MarkTechson/6283b6a3b353f9e38964af0740e29280">
-                    (reference)
-                  </a>
-                  <div class="item">
-                    <app-code-container
-                      [code]="example"
-                      [languages]="['sass']">
-                    </app-code-container>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
+            Support new Sass API for Angular CDK and Angular Material code</li>
         </ol>
       </div>
     </div>
   </app-section-container>
 
+  <app-section-container>
+    <div class="title" id="inlinesassincomponents" title>Inline Sass in components</div>
+    <div class="description-container">
+      <div class="item">
+        It's helpful for using single file component. Previously, Sass was only available in external resources due to the Angular compiler.
+      </div>
+      <div class="item">
+        There are a few steps.
+      </div>
+      <div class="item">
+        <ul>
+          <li>Update angular.json.
+            <div class="item">
+              <app-code-container
+                [code]="enableInlineStyle"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Update the component.
+            <div class="item">
+              <app-code-container
+                [code]="componentCode"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Update the template.
+            <div class="item">
+              <app-code-container
+                [code]="htmlCode"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              The following result demostrate the inline CSS works. 
+            </div>
+            <div class="item">
+              <button class="inline-style-demo-btn">Demo</button>
+              <button class="inline-style-demo-btn2">Demo2</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title" id="usenewsassapiforangularcdkandangularmaterialcode" title>Use new Sass API for Angular CDK and Angular Material code</div>
+    <div class="description-container">
+      <div class="item">
+        Angular CDK and Angular Material have internally adopted Sass’s 
+        <a href="https://sass-lang.com/blog/the-module-system-is-launched/">
+          new module system
+        </a>
+      </div>
+      <div class="item">
+        There are a few steps.
+      </div>
+      <div class="item">
+        <ul>
+          <li>Move node-sass npm package to sass. (the node-sass package is unmaintained)
+            <div class="item">
+              <app-code-container
+                [code]="sassPkg"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            Upgrade it by using the following command.
+            <div class="item">
+              <app-code-container
+                [code]="update"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>The following example shows the effect.
+            <a href="https://gist.github.com/MarkTechson/6283b6a3b353f9e38964af0740e29280">
+              (reference)
+            </a>
+            <div class="item">
+              <app-code-container
+                [code]="example"
+                [languages]="['sass']">
+              </app-code-container>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </app-section-container>
+  
   <!-- reference -->
   <app-section-container>
     <div class="title" id="reference" title>Reference</div>

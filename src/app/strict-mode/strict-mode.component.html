@@ -7,7 +7,7 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        Angular v12 enable the strict mode on TypeScript and Angular by default.
+        Angular v12 enable the strict mode on TypeScript and Angular by default. We have to write the code carefully or it'll cause the error in the compile phase.
       </div>
       <div class="item">
         <ul>
@@ -94,6 +94,52 @@
               </app-code-container>
             </div>
           </li>
+          <li>
+            <div class="item">
+              <b>strictNullChecks</b>
+            </div>
+            <div class="item">
+              Raise an error that you have not made a guarantee that the variable exists before trying to use it.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="strictNullChecks"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+            <div class="item">
+            example:
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="strictNullChecksErrrorMessage"
+                [languages]="['typescript']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>strictPropertyInitialization</b>
+            </div>
+            <div class="item">
+              Raise an error when a class property was declared but not set in the constructor.            
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="strictPropertyInitialization"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+            <div class="item">
+            example:
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="strictPropertyInitializationErrorMessage"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
         </ol>
       </div>
     </div>
@@ -109,7 +155,7 @@
               <b>strictTemplates</b>
             </div>
             <div class="item">
-              Angular will check the type on the template
+              Angular will check the type on the template. The data type of the data source and the input should be consistent. 
             </div>
             <div class="item">
               <app-code-container
@@ -125,14 +171,6 @@
                 [code]="strictTemplatesErrorMessage"
                 [languages]="['typescript', 'html']">
               </app-code-container>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <b>strictInjectionParameters</b>
-            </div>
-            <div class="item">
-              Angular reports an error for a supplied parameter whose injection type cannot be determined.
             </div>
           </li>
           <li>
