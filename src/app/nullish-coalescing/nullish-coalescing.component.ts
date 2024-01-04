@@ -11,6 +11,19 @@ export class NullishCoalescingComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.NULLISH_COALESCING);
 
   age: number | null = null;
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
+  titles = [
+    "Introduction"
+  ];
+
+  constructor(private changeDetectorRef: ChangeDetectorRef){}
+
+  ngAfterViewInit() {
+    this.changeDetectorRef.detectChanges();
+  }
+
   calculateAge() {
     return 1;
   }
@@ -26,14 +39,4 @@ export class NullishCoalescingComponent {
     {{ age ?? calculateAge() }}
   </div>
   `;
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = ["Description", "Demo"];
-
-  constructor(private changeDetectorRef: ChangeDetectorRef){}
-
-  ngAfterViewInit() {
-    this.changeDetectorRef.detectChanges();
-  }
 }

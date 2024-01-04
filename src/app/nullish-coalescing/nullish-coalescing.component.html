@@ -1,58 +1,63 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-      In v12, we are allowed to use the Nullish Coalescing on the template. 
-      Baically, we usually use the ternary operator to check if the value is null or undefined.
+        Baically, we usually use the ternary operator to check if the value is null or undefined for assigning the value.
       </div>
       <div class="item">
-        <app-code-container
-          [code]="legazyCode"
-          [languages]="['html']">
-        </app-code-container>
+        <ul>
+          <li>
+            <div class="item">
+              example:
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="legazyCode"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              demo:
+            </div>
+            <div class="item">
+              {{age !== null && age !== undefined ? age : calculateAge() }}
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="item">
-        In v12, we can use the following code instead.
+        In v12, we are allowed to use the Nullish Coalescing on the template. 
       </div>
       <div class="item">
-        <app-code-container
-          [code]="newCode"
-          [languages]="['html']">
-        </app-code-container>
+        <ul>
+          <li>
+            <div class="item">
+              example:
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="newCode"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              demo:
+            </div>
+            <div class="item">
+              {{ age ?? calculateAge() }}
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </app-section-container>
-
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
-
-  <app-section-container>
-    <div class="title" id="demo">Demo</div>
-    <div class="demo-container">
-      <div class="item">
-        Legacy syntax:
-      </div>
-      <div class="item">
-        {{age !== null && age !== undefined ? age : calculateAge() }}
-      </div>
-      <div class="item">
-        New syntax:
-      </div>
-      <div class="item">
-        {{ age ?? calculateAge() }}
-      </div>
-    </div>
-  </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

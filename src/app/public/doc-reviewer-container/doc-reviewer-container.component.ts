@@ -1,4 +1,6 @@
 import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-doc-reviewer-container',
@@ -9,11 +11,20 @@ export class DocReviewerContainerComponent {
   @Input() titles: string[];
   @Input() sections: QueryList<ElementRef> | undefined;
   @ViewChildren("menu") menu: QueryList<ElementRef> | undefined;
-
+  showBackTop = false;
   currentIndex = -1;
+
+  icon = faArrowUp;
 
   ngAfterViewInit() {
     addEventListener("scroll", (event) => {
+      if ((window.innerHeight + Math.round(document.documentElement.scrollTop)) >= document.body.scrollHeight) {
+        console.log("you're at the bottom of the page")
+        this.showBackTop = true;
+      } else {
+        this.showBackTop = false;
+      }
+
       this.sections?.toArray().forEach((section, index) => {
         if (this.isInViewport(section)) {
           this.currentIndex = index;
@@ -25,6 +36,8 @@ export class DocReviewerContainerComponent {
         if (index !== this.currentIndex) {
           this.menu?.get(index)?.nativeElement.classList.remove("active")}
       })
+
+      
     });
   }
 
@@ -36,5 +49,8 @@ export class DocReviewerContainerComponent {
   getHash(title: string) {
     return `#${title.replace(/\s/g, '').toLowerCase()}`;
   }
-  test ='123'
+  
+  moveTop() {
+    window.scrollTo(0, 0);
+  }
 }

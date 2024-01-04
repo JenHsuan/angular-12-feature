@@ -1,18 +1,23 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-  
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="overview" title>Overview</div>
     <div class="description-container">
       <div class="item">
-        <ul>
+        There are a few minor features in Angular 12.
+      </div>
+      <div class="item">
+        <ol>
           <li>
-            ng build defaults to production for the new v12 project. 
-            For the legacy project, we have to migrate the project by using the following command.
+            <div class="item">
+              <b>ng build</b> defaults to production for the new v12 project to prevent accidental development builds in production.
+            </div> 
+            <div class="item">
+              We could use the following command to migrate the legacy project.
+            </div>
             <div class="item">
               <app-code-container
                 [code]="ngBuildMigration"
@@ -21,7 +26,12 @@
             </div>
           </li>
           <li>
-            The production version of Webpack5 support is released in v12
+            <div class="item">
+              The production version of Webpack5 support is released in v12.
+            </div>
+            <div class="item">
+              Please refer to the "Custom Webpack Configurations In Angular" section before using new features of Webpack5.
+            </div>
           </li>
           <li>
             <div class="item">
@@ -37,19 +47,105 @@
               </app-code-container>
             </div>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </app-section-container>
   
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
+  <app-section-container>
+    <div class="title" id="customwebpackconfigurationsinangular" title>
+      Custom Webpack Configurations In Angular
+    </div>
+    <div class="description-container">
+      <div class="item">
+        There are a few steps to custom Webpack. Suppose that we want to use the webpack-bundle-analyzer package to analyze the bundles.
+      </div>
+      <div class="item">
+        <ol>
+          <li>Install required packages.
+            <div class="item">
+              <app-code-container
+                [code]="packagesInstallation"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Update angular.json.
+            <div class="item">
+              <app-code-container
+                [code]="angularJson"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Add the webpack.config.js.
+            <div class="item">
+              <app-code-container
+                [code]="webpackConfig"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Build the bundle.
+            <div class="item">
+              <app-code-container
+                [code]="ngBuild"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Execute the Webpack build.
+            <div class="item">
+              <app-code-container
+                [code]="webpackBuild"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>It will open a browser on http://127.0.0.1.
+            <div class="item">
+              <div class="image-container">
+                <img src="../../assets/image/webpack.png" alt="">
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title" id="webpack5newfeatures" title>
+      Webpack 5 New Features
+    </div>
+    <div class="description-container">
+      <div class="item">
+        There are a few minor features in Webpack 5.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            <div class="item">
+              <b>Named chunk IDs</b>
+            </div>
+            <div class="item">
+              Readable ids for better debugging. Update webpack.config.js as the following code.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="namedChunk"
+                [languages]="['typescript']">
+              </app-code-container>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </app-section-container>
 
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>
@@ -63,11 +159,18 @@
               New features in webpack 5
             </a>
           </li>
+          <li>
+            <a href="https://www.digitalocean.com/community/tutorials/angular-custom-webpack-config">
+              How To Use Custom webpack Configurations with Angular CLI Builders
+            </a>
+          </li>
+          <li>
+            <a href="https://limeii.github.io/2019/08/angular-customize-webpack/">
+              Angular:如何在 Angular(8.0) 中配置 Webpack
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

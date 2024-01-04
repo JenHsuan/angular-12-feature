@@ -1,12 +1,10 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
         The legacy i18n message ID is not stable when there are insignificant changes, such as to whitespace. 
@@ -20,15 +18,16 @@
           </li>
           <li>
             <div class="item">
-              After v11, new projects are automatically configured to use the new message ids
+              After v11, new projects are automatically configured to use the new message ids.
             </div>
           </li>
           <li>
             <div class="item">
-              For the existed applications, the ng cli can help to migrate the legacy localization IDs to ID from the latesst algorithm.
+              For the existed applications, the ng cli can help to migrate the legacy localization IDs to ID from the latest algorithm.
             </div>
             <div class="item">
-              There a few steps to migarte the legacy localization IDs<ol>
+              There a few steps to migarte the legacy localization IDs.
+              <ol>
               <li>Install the localize package.
                 <div class="item">
                   <app-code-container
@@ -68,15 +67,10 @@
       </div>
     </div>
   </app-section-container>
-
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
   
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <ul>
         <li>
@@ -97,7 +91,4 @@
       </ul>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

@@ -19,7 +19,13 @@ export class DeprecationsComponent {
   @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Reference"];
+  titles = [
+    "Introduction",
+    "Differences between View Enginee and Ivy",
+    "Incremental DOM",
+    "Enable Ivy for applications before v12",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -71,11 +77,30 @@ export class DeprecationsComponent {
   });
   `;
 
+  emitDistinctChangesOnlyUsage = `
+  export class DeprecationsContentChildrenComponent {
+    @ContentChildren('item', { 
+      emitDistinctChangesOnlyUsage: false 
+    }) 
+    items: QueryList<ElementRef<any>> | undefined;
+    
+    ngAfterContentInit() {
+      //will print logs when initialized
+      this.items?.changes.subscribe(items => {
+        console.log(items)
+      });
+    }
+  }
+  `;
+
   emitDistinctChangesOnly = `
   //child component
   export class DeprecationsContentChildrenComponent {
-    @ContentChildren('item') items: QueryList<ElementRef<any>> | undefined;
+    @ContentChildren('item') 
+    items: QueryList<ElementRef<any>> | undefined;
+    
     ngAfterContentInit() {
+      //won't print logs when initialized
       this.items?.changes.subscribe(items => {
         console.log(items)
       });
@@ -85,7 +110,6 @@ export class DeprecationsComponent {
   //parent component
   export class DeprecationsComponent {
     cnt = 0;
-    @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
     add() {
       this.items.push(this.cnt++);
     }
@@ -100,7 +124,28 @@ export class DeprecationsComponent {
   </app-deprecations-content-children>
   `
 
+  enableIvy = `
+  //Before v12
+
+  //tsconfig.json
+  {
+    "compilerOptions": {
+      "module": "esnext",
+      // ...
+    },
+    "angularCompilerOptions": {
+      "enableIvy": true,
+      "allowEmptyCodegenFiles": true
+    }
+  }
+
+  //ng new
+  ng new Angular12Project --enable-ivy
+  `;
+
   tsconfigProd = `
+  //tsconfig.lib.prod.json
+
   {
     "extends": "./tsconfig.lib.json",
     "compilerOptions": {
@@ -148,5 +193,27 @@ export class DeprecationsComponent {
 
   ngNew = `
   ng new Angular12Project --enable-ivy
+  `;
+
+  angularExampleCode = `
+  import { Component } from '@angular/core';
+
+  //@Component directive
+  @Component({
+    selector: 'app-root',
+    template: '
+      <!-- template HTML -->
+      <div>
+        <span>{{title}}</span>
+        <app-child *ngIf="show"></app-child>
+      </div>
+    ',
+    styles: []
+  })
+  export class AppComponent {
+    //Typecript properties
+    title = 'example';
+    show: boolean;
+  }
   `;
 }

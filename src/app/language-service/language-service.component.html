@@ -1,12 +1,10 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
         Angular language service is an IDE extension that allows code editors to get helpful tips, code completion navigation.
@@ -27,16 +25,11 @@
     </div>
   </app-section-container>
 
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
-
   <app-section-container>
-    <div class="title" id="newfeature">New Feature</div>
+    <div class="title" id="newfeature" title>New Feature</div>
     <div class="description-container">
       <div class="item">
-        Be able to check the symbol referencees from the template directly
+        Be able to check the symbol references from the template directly
       </div>
       <div class="image-container">
         <img src="../../assets/image/references.png" alt="">
@@ -45,13 +38,16 @@
   </app-section-container>
   
   <app-section-container>
-    <div class="title" id="oldfeatures">Old Features</div>
+    <div class="title" id="oldfeatures" title>Old Features</div>
     <div class="description-container">
       <div class="item">
         <ol>
           <li>
             <div class="item">
-              Syntax highlighting
+              <b>Syntax highlighting</b>
+            </div>
+            <div class="item">
+              Highlight the syntax in the template.
             </div>
             <div class="image-container">
               <img src="../../assets/image/highlight.png" alt="">
@@ -59,7 +55,9 @@
           </li>
           <li>
             <div class="item">
-              Go to/Peek definition
+              <b>
+                Go to/Peek definition
+              </b>
             </div>
             <div class="image-container">
               <img src="../../assets/image/peek_definition.png" alt="">
@@ -67,7 +65,9 @@
           </li>
           <li>
             <div class="item">
-              Type detail on hover
+              <b>
+                Type detail on hover
+              </b>
             </div>
             <div class="image-container">
               <img src="../../assets/image/hover_type.png" alt="">
@@ -80,7 +80,7 @@
 
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>
@@ -93,7 +93,4 @@
       </div>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

@@ -1,75 +1,104 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <!-- title -->
-  <app-section-container id="desciption">
-    <div class="title" id="description">Description</div>
+  <app-section-container>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
+      <div class="item">
+        There are a few breaking changes in Angular 12.
+      </div>
       <div class="item">
         <ol>
           <li>
-            Angular v12 requires node.js version v10 
+            v12 requires node.js v10 or later version.
             <a href="https://angular.io/guide/versions">(Version Compatibility)</a>
           </li>
           <li>
-            Angular v12 requires 
+            v12 requires 
             <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html">
-              TypeScript version 4.2
-            </a> or later
+              TypeScript v4.2
+            </a> or later version.
             <a href="https://angular.io/guide/versions">(Version Compatibility)</a>
+          </li>
+          <li>
+            v12 requires zone.js v0.11.4. Can be upgraded with the following command.
+            <div class="item">
+              <app-code-container
+                [code]="update"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container> 
+
+  <app-section-container>
+    <div class="title" id="newfeatureoftypescript4.2" title>New Features of TypeScript 4.2</div>
+    <div class="description-container">
+      <div class="item">
+        There are a few new features in TypeScript 4.2.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            <div class="item">
+              <b>
+                Smarter Type Alias Preservation: 
+              </b>
+            </div>
+            <div class="item">
+              Reducing the size of error messages and hover hints.
+              <a href="https://www.typescriptlang.org/play?ts=4.2.0-beta#code/PTAEBUE8AcFNQIYBsCWCDOt2gCYoGb6wBOo+xA9gLagoB2ALifggMZa12gMAWCD3HrEiJisOgHIBAcwCuCYgkaxYObhQBQIUAGsV0QbBSk6CKvAyGRC+LMxrelWdJ4VZA3vFbVoKJCQA6UABJLmgFBgAaQRR0LTBYxG5FHFgAWgpCUAouAHc+GRQANw5PGk9jMn8ADxQAIz8UBkhouvdDXApcunQUVPjabF5+UHRqWAYUc2woOABlVmIUaAF0V1zsJWy6gCtYVgF6dCYENUyO03MAjQHQ0AAWAIAmaM9Qbypff1I9WGghxSsHTZfAdChLaT0ZCgS7wfDgpLNOCIVAYAb0UBUcHwaBINhYIIAJVUslY9GkHV6AC94OcSJRSNN0AhpBwlGpXCVSDx6Ax0NcNEj4HM+MiALwaUCgAA+oAA3rp6DgAFygABEZOIrH8aoA3KAUig7Kq6LIqHUSKAAL6SmXyxV0FXq9AAR3kYj1oxQNJNZotpBtUtlCp0StVarEByU0h1+tyfV4vvNJH1QhQLgYSf91t1NyFoAAcmZVKAxfbYarjks6BSrbmBgAFMRFFBudBISCqkUIOAaVLamygfyrUWwLuj+vaAsUd58GvwTxiVrtAigSBudQUYFvWC1Y7k0aj0CyOitrjs0C7piO2hRAaeLizWALJYrY-2dSgCRICiYCRgiEoSQGFi2VG5tCbWAWzbDtVRDMN1U1bVYE9Q1jRhP0UzteDHXDV13RQ-VqTHDDk2IfVgwdJ0I32Bho1jUB4xwRNSP9VMjAzLMsNlE9UnwehVD7fY8TEIcJmyFYz2Qbs4HHHt4B4x1YH4uhVEnMBIOguxYPtUNcMQ4xkNQ04jXQLjyOwqi8LdGxPWI8yKN0hCaKjGsGKYljTTI9j0x4TNWO448lJUwT+xE+BhxA8wcBkkjYtAAAyQtixwdTQE01ttM7UAAAocOopCGLQsyAosotooASjtPKrOdGyPSI70SK8tjksq6r8vDSM6LcwjGITHgHNANNONK-VytUKrFL4gScCEgdRMiihJJyZAJpi0dVRy+KkvWqagpm1TUtAbRtqPXaUv23jlNmoA">
+                (reference)
+              </a>
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="smarterTypeAlias"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+              Leading/Middle Rest Elements in Tuple Types: 
+              </b>
+            </div>
+            <div class="item">Now rest elements can occur anywhere within a tuple. But it's restricted to put the rest elements after another rest elements or in front of the optional parameter.
+              <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/">
+                (reference)
+              </a>
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="restElems"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+              --noPropertyAccessFromIndexSignature:
+              </b>
+            </div>
+            <div class="item">
+              Could only get properties declared by <b>index signature</b> with <b>bracketed</b> element access syntax like person["name"]
+              <a href="https://www.cnblogs.com/laggage/p/explain-some-options-of-tsconfig.html">
+                (reference)
+              </a>
+            </div>
             <div class="item">
               <ul>
                 <li>
                   <div class="item">
-                    <b>
-                      Smarter Type Alias Preservation: 
-                    </b>
-                  </div>
-                  <div class="item">The compiler keeps track of the original name for a type alias in more places. Reducing the size of error messages and hover hints.
-                    <a href="https://www.typescriptlang.org/play?ts=4.2.0-beta#code/PTAEBUE8AcFNQIYBsCWCDOt2gCYoGb6wBOo+xA9gLagoB2ALifggMZa12gMAWCD3HrEiJisOgHIBAcwCuCYgkaxYObhQBQIUAGsV0QbBSk6CKvAyGRC+LMxrelWdJ4VZA3vFbVoKJCQA6UABJLmgFBgAaQRR0LTBYxG5FHFgAWgpCUAouAHc+GRQANw5PGk9jMn8ADxQAIz8UBkhouvdDXApcunQUVPjabF5+UHRqWAYUc2woOABlVmIUaAF0V1zsJWy6gCtYVgF6dCYENUyO03MAjQHQ0AAWAIAmaM9Qbypff1I9WGghxSsHTZfAdChLaT0ZCgS7wfDgpLNOCIVAYAb0UBUcHwaBINhYIIAJVUslY9GkHV6AC94OcSJRSNN0AhpBwlGpXCVSDx6Ax0NcNEj4HM+MiALwaUCgAA+oAA3rp6DgAFygABEZOIrH8aoA3KAUig7Kq6LIqHUSKAAL6SmXyxV0FXq9AAR3kYj1oxQNJNZotpBtUtlCp0StVarEByU0h1+tyfV4vvNJH1QhQLgYSf91t1NyFoAAcmZVKAxfbYarjks6BSrbmBgAFMRFFBudBISCqkUIOAaVLamygfyrUWwLuj+vaAsUd58GvwTxiVrtAigSBudQUYFvWC1Y7k0aj0CyOitrjs0C7piO2hRAaeLizWALJYrY-2dSgCRICiYCRgiEoSQGFi2VG5tCbWAWzbDtVRDMN1U1bVYE9Q1jRhP0UzteDHXDV13RQ-VqTHDDk2IfVgwdJ0I32Bho1jUB4xwRNSP9VMjAzLMsNlE9UnwehVD7fY8TEIcJmyFYz2Qbs4HHHt4B4x1YH4uhVEnMBIOguxYPtUNcMQ4xkNQ04jXQLjyOwqi8LdGxPWI8yKN0hCaKjGsGKYljTTI9j0x4TNWO448lJUwT+xE+BhxA8wcBkkjYtAAAyQtixwdTQE01ttM7UAAAocOopCGLQsyAosotooASjtPKrOdGyPSI70SK8tjksq6r8vDSM6LcwjGITHgHNANNONK-VytUKrFL4gScCEgdRMiihJJyZAJpi0dVRy+KkvWqagpm1TUtAbRtqPXaUv23jlNmoA">
-                      (reference)
-                    </a>
-                  </div>
-                  <div class="item">
-                    <app-code-container
-                      [code]="smarterTypeAlias"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    <b>
-                    Leading/Middle Rest Elements in Tuple Types: 
-                    </b>
-                  </div>
-                  <div class="item">rest elements specifically been expanded in how they can be used.
-                    <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/">
-                      (reference)
-                    </a>
-                  </div>
-                  <div class="item">
-                    <app-code-container
-                      [code]="restElems"
-                      [languages]="['typescript', 'html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    <b>
-                    --noPropertyAccessFromIndexSignature:
-                    </b>
-                  </div>
-                  <div class="item">
-                    could only get properties declared by them with “bracketed” element access syntax like person["name"]
-                    <a href="https://www.cnblogs.com/laggage/p/explain-some-options-of-tsconfig.html">
-                      (reference)
-                    </a>
+                    usage:
                   </div>
                   <div class="item">
                     <app-code-container
@@ -77,6 +106,8 @@
                       [languages]="['typescript', 'html']">
                     </app-code-container>
                   </div>
+                </li>
+                <li>
                   <div class="item">
                     example:
                   </div>
@@ -87,17 +118,28 @@
                     </app-code-container>
                   </div>
                 </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+                Destructured Variables Can Be Explicitly Marked as Unused:
+              </b> 
+            </div>
+            <div class="item">
+              <ul>
                 <li>
                   <div class="item">
-                    <b>
-                      Destructured Variables Can Be Explicitly Marked as Unused:
-                    </b> 
-                  </div>
-                  <div class="item">
-                    Previously, if _first was never used later on, TypeScript would issue an error under noUnusedLocals. Now, TypeScript will recognize that _first was intentionally named with an underscore because there was no intent to use it.
+                    Previously, if _first was never used later on, TypeScript would issue an error under noUnusedLocals.
                     <a href="">
                       (reference)
                     </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    Now, TypeScript will recognize that _first was intentionally named with an underscore because there was no intent to use it.
                   </div>
                   <div class="item">
                     <app-code-container
@@ -106,15 +148,21 @@
                     </app-code-container>
                   </div>
                 </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+                abstract Construct Signatures:
+                <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#abstract-construct-signatures">
+                  (reference)
+                </a>
+              </b>
+            </div>
+            <div class="item">
+              <ul>
                 <li>
-                  <div class="item">
-                    <b>
-                      abstract Construct Signatures:
-                      <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#abstract-construct-signatures">
-                        (reference)
-                      </a>
-                    </b>
-                  </div>
                   <div class="item">
                     We can not assign an abstract class to anything that expects a construct signature. It is overly-restrictive in case we want to write a subclass of Ctor.
                   </div>
@@ -124,6 +172,8 @@
                       [languages]="['typescript', 'html']">
                     </app-code-container>
                   </div>
+                </li>
+                <li>
                   <div class="item">
                     In v12, we are allowed to specify an abstract modifier on constructor signatures.
                   </div>
@@ -133,6 +183,8 @@
                       [languages]="['typescript', 'html']">
                     </app-code-container>
                   </div>
+                </li>
+                <li>
                   <div class="item">
                     The benefit is that it allows us to write mixin factories in a way that supports abstract classes. For example, in the following code snippet, we’re able to use the mixin function withStyles with the abstract class SuperClass.
                   </div>
@@ -146,28 +198,14 @@
               </ul>
             </div>
           </li>
-          <li>
-            Angular v12 requires zone.js version 0.11.4. Upgrade it by using the following command.
-            <div class="item">
-              <app-code-container
-                [code]="update"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
-            </div>
-          </li>
-        </ol>
+        </ul>
       </div>
     </div>
   </app-section-container>
 
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
-
   <!-- reference -->
-  <app-section-container id="reference">
-    <div class="title" id="reference">Reference</div>
+  <app-section-container>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>
@@ -185,7 +223,4 @@
       </div>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

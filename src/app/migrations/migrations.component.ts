@@ -20,7 +20,11 @@ export class MigrationsComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Reference"];
+  titles = [
+    "Introduction",
+    "Official Migration Guide",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 

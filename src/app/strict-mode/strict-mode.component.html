@@ -1,24 +1,19 @@
-<div class="base-container">
-  <div class="page-title">
-    <div class="content">
-      {{ title }}
-    </div>
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="desciption">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        Angular v12 enable the strict mode on TypeScript and Angular by default. There are some effects.
+        Angular v12 enable the strict mode on TypeScript and Angular by default.
       </div>
       <div class="item">
         <ul>
           <li>Enable the strict mode on TypeScript recommended by the TypeScript team.
           </li>
           <li>Turn on the strict Angular compiler flag.
-            
           </li>
         </ul>
       </div>
@@ -26,13 +21,16 @@
   </app-section-container>
 
   <app-section-container>
-    <div class="title" id="typescriptstrictmode">TypeScript Strict Mode</div>
+    <div class="title" id="typescriptstrictmode" title>TypeScript Strict Mode</div>
     <div class="description-container">
       <div class="item">
         <ol>
           <li>
             <div class="item">
-              forceConsistentCasingInFileNames: when importing modules from the file, the casting of the file name is case-sensitive.
+              <b>forceConsistentCasingInFileNames</b>
+            </div>
+            <div class="item">
+              When importing modules from the file, the casting of the file name is case-sensitive.
             </div>
             <div class="item">
               <app-code-container
@@ -52,7 +50,10 @@
           </li>
           <li>
             <div class="item">
-              noImplicitReturns: throw the error message if not all code return value in a function.
+              <b>noImplicitReturns</b>
+            </div>
+            <div class="item">
+              Throw the error message if not all code return value in a function.
             </div>
             <div class="item">
               <app-code-container
@@ -72,8 +73,10 @@
           </li>
           <li>
             <div class="item">
-              noFallthroughCasesInSwitch: ensures that any non-empty case inside a switch statement includes either break, return, or throw.
-            
+              <b>noFallthroughCasesInSwitch</b>
+            </div>
+            <div class="item">
+              Ensure that any non-empty case inside a switch statement includes either break, return, or throw.
             </div>
             <div class="item">
               <app-code-container
@@ -96,19 +99,17 @@
     </div>
   </app-section-container>
 
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
-
   <app-section-container>
-    <div class="title" id="angularcompilerflags">Angular Compiler Flags</div>
+    <div class="title" id="angularcompilerflags" title>Angular Compiler Flags</div>
     <div class="description-container">
       <div class="item">
         <ol>
           <li>
             <div class="item">
-              strictTemplates: Angular will check the type on the template
+              <b>strictTemplates</b>
+            </div>
+            <div class="item">
+              Angular will check the type on the template
             </div>
             <div class="item">
               <app-code-container
@@ -128,12 +129,18 @@
           </li>
           <li>
             <div class="item">
-              strictInjectionParameters: Angular reports an error for a supplied parameter whose injection type cannot be determined.
+              <b>strictInjectionParameters</b>
+            </div>
+            <div class="item">
+              Angular reports an error for a supplied parameter whose injection type cannot be determined.
             </div>
           </li>
           <li>
             <div class="item">
-              strictInputAccessModifiers: Whether access modifiers such as private/protected/readonly are honored when assigning a binding expression to an &#64;Input(). If disabled, the access modifiers of the @Input are ignored; only the type is checked.
+              <b>strictInputAccessModifiers</b>
+            </div>
+            <div class="item">
+              Whether access modifiers such as private/protected/readonly are honored when assigning a binding expression to an &#64;Input(). If disabled, the access modifiers of the @Input are ignored; only the type is checked.
             </div>
             <div class="item">
               <app-code-container
@@ -158,7 +165,7 @@
 
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <ul>
         <li>
@@ -199,7 +206,4 @@
       </ul>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

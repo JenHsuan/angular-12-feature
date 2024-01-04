@@ -15,6 +15,28 @@ const PAGES = ['/'];
 export class HttpContextComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.HTTP_CONTEXT);
 
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
+  titles = [
+    "Introduction",
+    "Pass Metadata to Interceptors",
+    "Demo",
+    "Reference"
+  ];
+
+  ngAfterViewInit() {
+    this.changeDetectorRef.detectChanges();
+  }
+  constructor(
+    private service: HttpContextService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) { }
+  
+  printFromServer(byPassAlert: boolean) {
+    combineLatest(PAGES.map(page => this.service.exportPdfFromServer(page, byPassAlert))).subscribe();
+  }
+
   legacyInterceptor = `
   @Injectable()
   export class PageInterceptorInterceptor implements HttpInterceptor {
@@ -34,6 +56,8 @@ export class HttpContextComponent {
   }`;
 
   newInterceptor = `
+  import { BYPASS_ALERT } from '../http-token/http-token';
+
   export class PageInterceptorInterceptor implements HttpInterceptor {
 
     constructor() {}
@@ -41,6 +65,7 @@ export class HttpContextComponent {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
       return next.handle(request).pipe(
         catchError((error: HttpErrorResponse) => {
+          //Bypass the alert if the value of HttpContextToken is true
           if (request.context.get(BYPASS_ALERT) === true) {
             return throwError(error)
           }
@@ -56,8 +81,10 @@ export class HttpContextComponent {
   `;
 
   httpService = `
+  import { BYPASS_ALERT } from '../http-token/http-token';
+
   exportPdfFromServer(path: string, byPassAlert: boolean) {
-    return this.http.post<any>('pdf/remote', {
+    return this.http.post<any>('your URL', {
       path,
       ...
     },{
@@ -69,24 +96,14 @@ export class HttpContextComponent {
   }`;
 
   httpContextToken = `
+  //HttpContextToken class
+  class HttpContextToken<T> {
+    constructor(defaultValue: () => T)
+    defaultValue: () => T
+  }
+
+  //example code
   import { HttpContextToken } from "@angular/common/http";
-  export const BYPASS_ALERT = new HttpContextToken(() => false);
+  export const BYPASS_ALERT = new HttpContextToken<boolean>(() => false);
   `;
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = ["Description", "Pass Metadata to Interceptors", "Demo", "Reference"];
-
-
-  ngAfterViewInit() {
-    this.changeDetectorRef.detectChanges();
-  }
-  constructor(
-    private service: HttpContextService,
-    private changeDetectorRef: ChangeDetectorRef
-  ) { }
-  
-  printFromServer(byPassAlert: boolean) {
-    combineLatest(PAGES.map(page => this.service.exportPdfFromServer(page, byPassAlert))).subscribe();
-  }
 }

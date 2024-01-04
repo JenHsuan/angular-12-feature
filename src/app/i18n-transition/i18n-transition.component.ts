@@ -12,7 +12,10 @@ export class I18nTransitionComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Reference"];
+  titles = [
+    "Introduction",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 

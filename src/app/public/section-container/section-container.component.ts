@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-section-container',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionContainerComponent {
   isContentOpen: boolean = true;
+  icon = faArrowUp;
 
   get titleClassName() {
     return this.isContentOpen ? 'section-icon' : 'section-icon close';

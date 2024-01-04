@@ -1,178 +1,27 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
+      <div class="item">
+        There are a few deprecations in Angular 12.
+      </div>
       <div class="item">
         <ol>
           <li>
-            <div>
-              Show the deprecation warning message for IE11. Angular will stop supoorting IE 11 in 
-              <a href="https://profound-kangaroo-9db0c6.netlify.app/#/breaking-changes">
-                v13
-              </a>
-            </div>
-          </li>
-          <li>
             <div class="item">
-              Moving closer to <b>Ivy everywhere:</b>
-              the View Engine is deprecated and new projects will use Ivy by default
+              v12 shows the deprecation warning message for IE11.
             </div>
             <div class="item">
               <ul>
                 <li>
                   <div class="item">
-                    There are a few changes in v12.
-                  </div>
-                  <div class="item">
-                    <ul>
-                      <li>
-                        <div class="item">
-                          The --enableIvy could be removed from tsconfig.json or ng new command. 
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          The ngcc is the way to compile View Engine libraries so that Ivy applications can consume them.
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          The View Enginee and ngcc will be removed in 
-                          <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
-                            v13
-                          </a>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          For library developers, they could still update the tsconfig.lib.prod.json if they're not ready yey
-                        </div>
-                        <div class="item">
-                          <app-code-container
-                            [code]="tsconfigProd"
-                            [languages]="['typescript', 'html']">
-                          </app-code-container>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    Differences between View Enginee and Ivy.
-                    <a href="https://browserperson.medium.com/from-view-engine-to-ivy-rendering-in-angular-a81d9eb8199b">
-                      (reference)
-                    </a>
-                    <ul>
-                      <li>
-                        <div class="item">
-                          <b>
-                            View Enginee (previous rendering and compilation pipeline)
-                          </b> 
-                        </div>
-                        <div class="item">
-                          The bindings (template data, set of instructions) will be generated through template HTMLs and TypeScript components. The resulting template data is then interpreted and transformed into DOM.
-                          The interpreter will makes decisions on which operations to run.
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          <b>
-                            Ivy (new render engine and compiler)
-                          </b>
-                        </div>
-                        <div class="item">
-                          Instead of generating template data and passing it into an interpreter, template instructions is where the logic that instantiates components, creates DOM nodes, and runs change detection.
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="item">
-                    <div class="image-container">
-                      <img src="../../assets/image/ivy.png" alt="">
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    Incremental DOM (based on Ivy)
-                  </div>
-                  <div class="item">
-                    <ul>
-                      <li>
-                        <div class="item">
-                          Angular uses incremental DOM instead of virtual DOM. The incremental DOM uses sets of template instructions for incrementally updating the real DOM in-place when data changes. It supports IE9 and above.
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          There are a few advantages.
-                          <a href="https://medium.com/a-layman/react-to-angular-react-change-detection-vs-angular-change-detection-51f3fbd88361">
-                            (reference)
-                          </a>
-                        </div>
-                        <div class="item">
-                          <ol>
-                            <li>
-                              Reduce memory allocation: the incremental DOM will only be updated when there are changes to the DOM. It won’t allocate additional memory if there are no changes.
-                            </li>
-                            <li>
-                              Less bundle size — shakable tree: in incremental DOM, a component will only be used when it references the instruction given by the @Directive director like @Component director.
-                            </li>
-                          </ol>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item">
-                    For enabling Ivy for existed applications before v12, we have to do the following steps. 
-                  </div>
-                  <div class="item">
-                    <ol>
-                      <li>Update the tsconfig.json
-                        <div class="item">
-                          <app-code-container
-                            [code]="tsconfig"
-                            [languages]="['typescript', 'html']">
-                          </app-code-container>
-                        </div>
-                      </li>
-                      <li>Update the angular.json to enable aot
-                        <div class="item">
-                          <app-code-container
-                            [code]="angularJson"
-                            [languages]="['typescript', 'html']">
-                          </app-code-container>
-                        </div>
-                      </li>
-                      <li>Update the package.json to install the ngcc
-                        <div class="item">
-                          <app-code-container
-                            [code]="ngcc"
-                            [languages]="['typescript', 'html']">
-                          </app-code-container>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item">
-                          Or we could just use the following command to enable Ivy for new applications. 
-                        </div>
-                        <div class="item">
-                          <app-code-container
-                            [code]="ngNew"
-                            [languages]="['typescript', 'html']">
-                          </app-code-container>
-                        </div>
-                      </li>
-                    </ol>
+                    <a href="https://profound-kangaroo-9db0c6.netlify.app/#/breaking-changes">
+                      v13
+                    </a> will stop supoorting IE 11.
                   </div>
                 </li>
               </ul>
@@ -180,32 +29,89 @@
           </li>
           <li>
             <div class="item">
-              The emitDistinctChangesOnly option of 
-              <a href="https://angular.io/api/core/ContentChildren">ContentChildren</a>
-               is deprecated. When this option is false, the change observable will emit even there is no changes.
-            The default value is true. 
+              v12 Moves closer to <b>Ivy everywhere:</b>
+              the <b>View Engine</b> is deprecated and new projects will use <b>Ivy</b> by default.
             </div>
             <div class="item">
-              In the following example, the child component won't print any logs until the items change.
-            </div>
-            <div class="item">
-              <app-code-container
-                [code]="emitDistinctChangesOnly"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
-            </div>
-            <div class="item">
-              Please open the developer console. We won't see any logs until we click the add button.
-            </div>
-            <div class="item">
-              <div class="demo-container">
-                <button (click)="add()">add</button>
-                <app-deprecations-content-children #itemWrapper>
-                  <div *ngFor="let item of items" #item>
-                    {{ item }}
+              <ul>
+                <li>
+                  <div class="item">
+                    <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
+                      v13
+                    </a> will remove the View Enginee and ngcc.
                   </div>
-                </app-deprecations-content-children>
-              </div>
+                </li>
+                <li>
+                  <div class="item">
+                    v12 uses --enableIvy to enable Ivy. 
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="enableIvy"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    For library developers, they could update the tsconfig.lib.prod.json if they're not ready yet.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="tsconfigProd"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <a href="https://angular.io/api/core/ContentChildren">ContentChildren</a>:
+              the emitDistinctChangesOnly option is deprecated. 
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    When it's false, the change observable will emit even there is no changes.
+            The default value is true.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="emitDistinctChangesOnlyUsage"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    In the following example, the child component won't print any logs until the items change.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="emitDistinctChangesOnly"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    Please open the developer console. We won't see any logs until we click the add button.
+                  </div>
+                  <div class="item">
+                    <div class="demo-container">
+                      <button (click)="add()">add</button>
+                      <app-deprecations-content-children #itemWrapper>
+                        <div *ngFor="let item of items" #item>
+                          {{ item }}
+                        </div>
+                      </app-deprecations-content-children>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </li>
         </ol>
@@ -213,14 +119,204 @@
     </div>
   </app-section-container>
 
-  <app-doc-reviewer-container
-    [sections]="sections"
-    [titles]="titles">
-  </app-doc-reviewer-container>
+  <app-section-container>
+    <div class="title" id="differencesbetweenviewengineeandivy" title>
+      Differences between View Enginee and Ivy
+    </div>
+    <div class="description-container">
+      <div class="item">
+        <ul>
+          <li>
+            <div class="item">
+              Example code 
+              <a href="https://browserperson.medium.com/from-view-engine-to-ivy-rendering-in-angular-a81d9eb8199b">
+                (reference)
+              </a>
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="angularExampleCode"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+                View Enginee (previous rendering and compilation pipeline)
+              </b> 
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    The view enginee first generates bindings (template data) through template HTMLs and TypeScript properties. (allocate memory)
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    All bindings will be re-evaluated when is a change detection (so-called dirty-checking). The updated bindings will be marked as updated.
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    The interpreter will interprete the template data and transformed into DOM. It makes decisions on which operations to run.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>
+                Ivy (new render engine and compiler)
+              </b>
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    Instead of generating template data and passing it into an interpreter, template instructions a set of template instructions is now generated directly.
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    The template instructions are where the logic that instantiates components, creates DOM nodes, and runs change detection.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>ngcc</b>
+            </div>
+            <div class="item">
+              The ngcc is the way to compile View Engine libraries so that Ivy applications can consume them.
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <img src="../../assets/image/ivy.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        (taken from ngConf-2018 keynote)
+      </div>
+    </div>
+  </app-section-container>
+  
+  <app-section-container>
+    <div class="title" id="incrementaldom" title>
+      Incremental DOM
+    </div>
+    <div class="description-container">
+      <div class="item">
+        Angular uses incremental DOM instead of virtual DOM.
+      </div>
+      <div class="item">
+        The incremental DOM uses sets of <b>template instructions</b> for incrementally updating the real DOM in-place when data changes.
+      </div>
+      <div class="item">
+        There are a few advantages.
+      </div>
+      <div class="item">
+        <ol>
+          <li>
+            <div class="item">
+              <b>Reduce memory allocation</b>
+            </div>
+            <div class="item">
+              The incremental DOM will only be updated when there are changes to the DOM. It won’t allocate additional memory if there are no changes.
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              <b>Less bundle size - shakable tree</b>
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    In incremental DOM, a component will only be used when it references the <b>template instruction</b> generated through the @Directive like @Component directive.
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    If a component does not reference an instruction, it will not be used and hence excluded from the bundle.
+                  </div>
+                  <div class="item">
+                    <div class="image-container">
+                      <img src="../../assets/image/incremental_dom.png" alt="">
+                    </div>
+                  </div>
+                  <div class="item">
+                    (taken from <a href="https://dev.to/paco_ita/discover-iterative-dom-the-magic-behind-angular-ivy-4c6g">this reference</a>)
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
+  
+  <app-section-container>
+    <div class="title" id="enableivyforapplicationsbeforev12" title>
+      Enable Ivy for Applications before v12
+    </div>
+    <div class="description-container">
+      <div class="item">
+        To enable Ivy for existed applications before v12, we have to do the following steps. 
+      </div>
+      <div class="item">
+        <ol>
+          <li>Update the tsconfig.json
+            <div class="item">
+              <app-code-container
+                [code]="tsconfig"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Update the angular.json to enable aot
+            <div class="item">
+              <app-code-container
+                [code]="angularJson"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>Update the package.json to install the ngcc
+            <div class="item">
+              <app-code-container
+                [code]="ngcc"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Or we could just use the following command to enable Ivy for new applications. 
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="ngNew"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
 
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>
@@ -243,7 +339,4 @@
       </div>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

@@ -15,7 +15,12 @@ export class StrictModeComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "TypeScript Strict Mode", "Angular Compiler Flags", "Reference"];
+  titles = [
+    "Introduction",
+    "TypeScript Strict Mode",
+    "Angular Compiler Flags",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -51,7 +56,7 @@ export class StrictModeComponent {
   `;
 
   noFallthroughCasesInSwitch = `
-  "noFallthroughCasesInSwitch": true
+  compilerOptions.noFallthroughCasesInSwitch: true
   `;
 
   noFallthroughCasesInSwitchErrorMessage = `
@@ -68,7 +73,7 @@ export class StrictModeComponent {
   }`;
 
   strictTemplates = `
-  compilerOptions.strictTemplates: true
+  angularCompilerOptions.strictTemplates: true
   `;
 
   strictTemplatesErrorMessage = `
@@ -99,7 +104,7 @@ export class StrictModeComponent {
   `;
 
   strictInputAccessModifiers = `
-  "strictInputAccessModifiers": true
+  angularCompilerOptionsstrictInputAccessModifiers: true
   `;
 
   strictInputAccessModifiersErrorMessage = `

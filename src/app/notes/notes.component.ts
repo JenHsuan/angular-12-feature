@@ -12,7 +12,12 @@ export class NotesComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Reference"];
+  titles = [
+    "Overview",
+    "Custom Webpack Configurations In Angular",
+    "Webpack 5 New Features",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -21,11 +26,19 @@ export class NotesComponent {
   }
   
   ngBuildMigration = `
-  ng update @angular/cli — migrate-only production-by-default
+  ng update @angular/cli --migrate-only production-by-default
   `;
 
   maxMinValidator = `
   <input type="number" min="30" max="100">
+  `;
+
+  packagesInstallation = `
+  npm install @angular-builders/custom-webpack@^12 --save-dev
+  npm install @angular-devkit/build-angular@^12 --save-dev  
+  npm install webpack-bundle-analyzer@^4 --save-dev    
+  npm install -g webpack@^5
+  npm install -g webpack-cli@^5
   `;
 
   angularJson = `
@@ -41,5 +54,32 @@ export class NotesComponent {
     "serve": {
       "builder": "@angular-builders/custom-webpack:dev-server",
       ...
+  `;
+
+  webpackConfig = `
+  const webpack = require('webpack');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+  module.exports = {
+    plugins: [
+      new BundleAnalyzerPlugin(),
+    ]
+  }
+  `;
+
+  ngBuild = `
+  ng build --prod --output-hashing none
+  `;
+
+  webpackBuild = `
+  webpack --profile --json build
+  `;
+
+  namedChunk = `
+  module.exports = {
+    optimization: {
+      chunkIds: 'named',
+    }
+  }
   `;
 }

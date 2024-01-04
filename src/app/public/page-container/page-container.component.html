@@ -1,0 +1,19 @@
+<div class="base-container">
+  <div class="page-title">
+    <div class="content">
+      {{ title }}
+    </div>
+    <app-navigation-button-container>
+    </app-navigation-button-container>
+  </div>
+
+  <ng-content></ng-content>
+
+  <app-doc-reviewer-container
+    [sections]="sections"
+    [titles]="sectionTitles">
+  </app-doc-reviewer-container>
+</div>
+
+<app-footer>
+</app-footer>

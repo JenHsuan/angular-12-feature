@@ -28,6 +28,8 @@ import { DeprecationsContentChildrenComponent } from './deprecations/deprecation
 import { DocReviewerContainerComponent } from './public/doc-reviewer-container/doc-reviewer-container.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NavigationButtonContainerComponent } from './public/navigation-button-container/navigation-button-container.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PageContainerComponent } from './public/page-container/page-container.component';
 
 @NgModule({
   declarations: [
@@ -53,13 +55,15 @@ import { NavigationButtonContainerComponent } from './public/navigation-button-c
     DeprecationsContentChildrenComponent,
     DocReviewerContainerComponent,
     FooterComponent,
-    NavigationButtonContainerComponent
+    NavigationButtonContainerComponent,
+    PageContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HighlightModule,
+    FontAwesomeModule,
   ],
   providers: [
     {

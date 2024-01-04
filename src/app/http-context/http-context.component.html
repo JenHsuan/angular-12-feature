@@ -1,18 +1,13 @@
-<div class="base-container">
-  <div class="page-title">
-    {{ title }}
-    <app-navigation-button-container>
-    </app-navigation-button-container>
-  </div>
-
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="titles"
+  >
   <app-section-container>
-    <div class="title" id="description">Description</div>
+    <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        Currently there is no way to configure interceptors in http client on per request basis. In V12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
-        <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>
-      </div>
-      <div class="item">
+        Currently there is no way to configure interceptors in <b>HttpClient</b> on per request basis.
         Suppose that we have an interceptor to alert the error message if the proxy is not ready.
       </div>
       <div class="item">
@@ -35,15 +30,20 @@
   </app-section-container>
 
   <app-section-container>
-    <div class="title" id="passmetadatatointerceptors">Pass Metadata to Interceptors</div>
+    <div class="title" id="passmetadatatointerceptors" title>Pass Metadata to Interceptors</div>
     <div class="description-container">
       <div class="item">
-        There are a few steps to pass metadata to the interceptor.
+        In v12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
+        <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>. There are a few steps to pass metadata to the interceptor.
       </div>
       <div class="item">
         <ol>
           <li>
-            <div class="item">Create a HttpContextToken</div>
+            <div class="item">Create a 
+              <a href="https://angular.io/api/common/http/HttpContextToken">
+                HttpContextToken
+              </a>
+            </div>
             <div class="item">
               <app-code-container
                 [code]="httpContextToken"
@@ -52,20 +52,34 @@
             </div>
           </li>
           <li>
-            <div class="item">Update the interceptor</div>
+            <div class="item">Create a new interceptor</div>
             <div class="item">
               <app-code-container
                 [code]="newInterceptor"
-                [languages]="['typescript', 'html']">
+                [languages]="['typescript']">
               </app-code-container>
             </div>
           </li>
           <li>
-            <div class="item">Update the HTTP service</div>
+            <div class="item">Update the HTTP service.</div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    Pass the HttpContextToken to the HttpClient.
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    Set the value to the HttpContextToken.
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="item">
               <app-code-container
                 [code]="httpService"
-                [languages]="['typescript', 'html']">
+                [languages]="['typescript']">
               </app-code-container>
             </div>
           </li>
@@ -74,13 +88,8 @@
     </div>
   </app-section-container>
 
-  <app-doc-reviewer-container
-  [sections]="sections"
-  [titles]="titles">
-  </app-doc-reviewer-container>
-
   <app-section-container>
-    <div class="title" id="demo">Demo</div>
+    <div class="title" id="demo" title>Demo</div>
     <div class="demo-container">
       <div class="button-container">
         <button class="export" (click)="printFromServer(true)">
@@ -97,7 +106,7 @@
 
   <!-- reference -->
   <app-section-container>
-    <div class="title" id="reference">Reference</div>
+    <div class="title" id="reference" title>Reference</div>
     <div class="reference-container">
       <div class="item">
         <ul>
@@ -120,7 +129,4 @@
       </div>
     </div>
   </app-section-container>
-</div>
-
-<app-footer>
-</app-footer>
+</app-page-container>

@@ -12,7 +12,12 @@ export class LanguageServiceComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Old Features", "New Feature", "Reference"];
+  titles = [
+    "Introduction",
+    "Old Features",
+    "New Feature",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 

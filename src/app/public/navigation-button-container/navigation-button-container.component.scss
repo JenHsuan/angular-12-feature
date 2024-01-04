@@ -20,6 +20,8 @@
     border: 1px solid oklch(51.74% .25453048882711515 315.26261625862725);
     color: #000;
     font-weight: 500;
+    -webkit-transition: background 1s; /* For Safari 3.0 to 6.0 */
+    transition: background 1s; /* For modern browsers */
     &:hover {
       font-weight: 700;
       color: #cecece;

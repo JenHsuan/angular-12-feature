@@ -8,5 +8,11 @@
         <a [href]="getHash(title)" #menu>{{ title }}</a>
       </li>
     </ul>  
+    <ng-container *ngIf="showBackTop">
+    <div class="show-back-top" (click)="moveTop()">
+      <fa-icon [icon]="icon"></fa-icon>
+      <span>Back to the top</span>
+    </div>
+  </ng-container>
   </nav>
 </div>

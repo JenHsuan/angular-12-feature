@@ -1,0 +1,37 @@
+.base-container {
+  font-family: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+  padding: .5em;
+  max-width: calc(100% - 20em);
+  min-height: calc(100vh - 100px);
+  .page-title {
+    font-size: 2em;
+    font-weight: 500;
+    padding: 1.2em;
+    font-style: normal;
+    width: 100%;
+    border-bottom: 1px solid oklch(97.12% .002 325.59);
+    border-top: 2px solid oklch(97.12% .002 325.59);
+    border-radius: .3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    .content {
+      max-width: 20em;
+    }
+
+    app-navigation-button-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .base-container {
+    max-width: 100%;
+    min-height: calc(100vh - 100px);
+  }
+}

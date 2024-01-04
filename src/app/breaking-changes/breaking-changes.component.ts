@@ -15,7 +15,11 @@ export class BreakingChangesComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description", "Reference"];
+  titles = [
+    "Introduction",
+    "New Feature of TypeScript 4.2",
+    "Reference"
+  ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -76,6 +80,7 @@ export class BreakingChangesComponent {
     g = 255;
     b = 255;
   
+    //index signature
     [key: string]: string | number;
   }
   

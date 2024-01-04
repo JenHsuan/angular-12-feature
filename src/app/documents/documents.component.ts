@@ -14,7 +14,7 @@ export class DocumentsComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = ["Description"];
+  titles = ["Introduction"];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 

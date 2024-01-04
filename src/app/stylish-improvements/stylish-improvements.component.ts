@@ -11,14 +11,23 @@ import { SectionContainerComponent } from '../public/section-container/section-c
       color: #1e90ff;
       border: 1px solid #1e90ff;
       padding: 5px;
+  }
+  `, `
+  .inline-style-demo-btn2 {
+      background-color: #ffffff;
+      color: #1e90ff;
+      border: 1px solid #1e90ff;
+      padding: 5px;
   }`]
 })
 export class StylishImprovementsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.STYLISH_IMPROVEMENTS);
+  titles = [
+    "Introduction",
+    "Reference"
+  ];
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = ["Description", "Demo", "Reference"];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -36,6 +45,7 @@ export class StylishImprovementsComponent {
   `;
 
   componentCode = `
+  //for single style
   @Component({
     selector: 'app-stylish-improvements',
     templateUrl: './stylish-improvements.component.html',
@@ -47,11 +57,53 @@ export class StylishImprovementsComponent {
         padding: 5px;
     }\`]
   })
+
+  //for multiple styles
+
+  //this way
+  @Component({
+    selector: 'app-stylish-improvements',
+    templateUrl: './stylish-improvements.component.html',
+    styles: [\`
+      .inline-style-demo-btn {
+        background-color: #ffffff;
+        color: #1e90ff;
+        border: 1px solid #1e90ff;
+        padding: 5px;
+    }
+    .inline-style-demo-btn2 {
+      background-color: #ffffff;
+      color: #1e90ff;
+      border: 1px solid #1e90ff;
+      padding: 5px;
+    }\`]
+  })
+
+  //or this way
+  @Component({
+    selector: 'app-stylish-improvements',
+    templateUrl: './stylish-improvements.component.html',
+    styles: [\`
+      .inline-style-demo-btn {
+        background-color: #ffffff;
+        color: #1e90ff;
+        border: 1px solid #1e90ff;
+        padding: 5px;
+    }\`, \`
+    .inline-style-demo-btn2 {
+      background-color: #ffffff;
+      color: #1e90ff;
+      border: 1px solid #1e90ff;
+      padding: 5px;
+    }
+    \`]
+  })
   `;
 
   htmlCode = `
   <div>
     <button class="inline-style-demo-btn">Demo</button>
+    <button class="inline-style-demo-btn2">Demo2</button>
   </div>`;
 
   sassPkg = `
