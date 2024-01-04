@@ -29,18 +29,18 @@ export class NavigationButtonContainerComponent {
 
   ngAfterViewInit() {
     const list = [...ROUTE_MAP.keys()];
-        const index = list.findIndex(path => path === this.currentRoute);
-        if (index - 1 >= 1) {
-          this.previous?.nativeElement.classList.add("active");
-        } else {
-          this.previous?.nativeElement.classList.remove("active");
-        }
+    const index = list.findIndex(path => path === this.currentRoute);
+    if (index - 1 >= 1) {
+      this.previous?.nativeElement.classList.add("active");
+    } else {
+      this.previous?.nativeElement.classList.remove("active");
+    }
 
-        if (index + 1 < list.length) {
-          this.next?.nativeElement.classList.add("active");
-        } else {
-          this.next?.nativeElement.classList.remove("active");
-        }
+    if (index + 1 < list.length) {
+      this.next?.nativeElement.classList.add("active");
+    } else {
+      this.next?.nativeElement.classList.remove("active");
+    }
   }
 
   previousPage() {

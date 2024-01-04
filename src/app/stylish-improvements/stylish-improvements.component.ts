@@ -26,8 +26,10 @@ export class StylishImprovementsComponent {
     "Introduction",
     "Inline Sass in components",
     "Use new Sass API for Angular CDK and Angular Material code",
+    "Use TailwindCSS in Angular",
     "Reference"
   ];
+  titleList = [...TYPE_TITLE_MAP.values()].join(', ');
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
@@ -151,5 +153,46 @@ export class StylishImprovementsComponent {
     )
   ));
   @include mat.all-component-themes($theme);
+  `;
+
+  installTailwindCSS = `
+  npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+  `;
+
+  initTailwindCSS = `
+  npx tailwindcss init
+  `;
+
+  updateStyle = `
+  //It'll effect my original CS styles
+  // @import 'tailwindcss/base';
+
+  //It'll effect my original CS styles
+  // @import 'tailwindcss/components';
+
+  @import 'tailwindcss/utilities';
+  `;
+
+  updatedConfig = `
+  module.exports = {
+    /* enable the JIT mode */
+    mode: 'jit',
+    
+    /* 
+     * Specify the files to be parsed inthe purge 
+     * because the JIT mode will only bundle the required files
+     */
+    purge: {
+      enabled: true,
+      content: ["./src/**/*.html", "./src/**/*.scss"],
+    },
+    theme: {
+      extend: {},
+    },
+    variants: {
+      extend: {},
+    },
+    plugins: [],
+  }
   `;
 }

@@ -15,7 +15,11 @@
             Supports Inline Sass in components
           </li>
           <li>
-            Support new Sass API for Angular CDK and Angular Material code</li>
+            Support new Sass API for Angular CDK and Angular Material code
+          </li>
+          <li>
+            Support TailwindCSS JIT node (Just-In-Time)
+          </li>
         </ol>
       </div>
     </div>
@@ -83,7 +87,7 @@
         There are a few steps.
       </div>
       <div class="item">
-        <ul>
+        <ol>
           <li>Move node-sass npm package to sass. (the node-sass package is unmaintained)
             <div class="item">
               <app-code-container
@@ -112,11 +116,98 @@
               </app-code-container>
             </div>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </app-section-container>
   
+  <app-section-container>
+    <div class="title" id="usetailwindcssinangular" title>Use TailwindCSS in Angular</div>
+    <div class="description-container">
+      <div class="item">
+        TailwindCSS is an utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+      </div>
+      <div class="item">
+        There are some reasons to use TailwindCSS instead of the traditional CSS.
+      </div>
+      <ul>
+        <li>
+          <div class="item"></div>
+        </li>
+      </ul>
+      <div class="item">
+        There are steps to set up the TailwindCSS in Angular.
+      </div>
+      <div class="item">
+        <ol>
+          <li>
+            <div class="item">
+              Install required packages.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="installTailwindCSS"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Generate tailwind.config.js.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="initTailwindCSS"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Update the style.scss.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="updateStyle"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Update the tailwind.config.js.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="updatedConfig"
+                [languages]="['typescript', 'html']">
+              </app-code-container>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="item">
+        The following result demostrate the TailwindCSS works.
+      </div>
+      <div class="item">
+        <div class="max-w-md mt-3 mx-auto bg-rose-950 rounded-xl shadow-md overflow-hidden md:max-w-screen-lg hover:bg-gray-300">
+          <div class="md:flex">
+            <div class="md:flex-shrink-0">
+              <img class="h-48 w-full object-cover md:h-full md:w-48" src="../../assets/image/angular-logo.png" alt="">
+            </div>
+            <div class="p-8">
+              <div class="uppercase py-3 text-6xl text-white font-semibold">Note of Angular 12</div>
+              <h1 class="py-3 text-3xl font-bold text-red-600 mb-0">Produced by Jen-Hsuan Hsieh</h1>
+              <p class="py-1 mb-0 text-gray-100">
+                {{titleList}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-section-container>
+
   <!-- reference -->
   <app-section-container>
     <div class="title" id="reference" title>Reference</div>
@@ -130,6 +221,16 @@
         <li>
           <a href="https://sass-lang.com/blog/the-module-system-is-launched/">
             The Module System is Launched
+          </a>
+        </li>
+        <li>
+          <a href="https://star-note-lucas.vercel.app/posts/tailwindcss-jit">
+            快速了解 Tailwind CSS 的 JIT 模式
+          </a>
+        </li>
+        <li>
+          <a href="https://hsuchihting.github.io/TailwindCSS/20210702/3640682418/">
+            Tailwind CSS - 如何在 Angular 中使用 TailwindCSS
           </a>
         </li>
       </ul>
