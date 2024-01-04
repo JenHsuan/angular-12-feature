@@ -140,7 +140,7 @@ export class DeprecationsComponent {
   }
 
   //ng new
-  ng new Angular12Project --enable-ivy
+  ng new Angular11Project --enable-ivy
   `;
 
   tsconfigProd = `
@@ -192,7 +192,7 @@ export class DeprecationsComponent {
   `;
 
   ngNew = `
-  ng new Angular12Project --enable-ivy
+  ng new Angular11Project --enable-ivy
   `;
 
   angularExampleCode = `
