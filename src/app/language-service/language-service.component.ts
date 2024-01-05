@@ -14,8 +14,8 @@ export class LanguageServiceComponent {
 
   titles = [
     "Introduction",
-    "Old Features",
     "New Feature",
+    "Old Features",
     "Reference"
   ];
 

@@ -4,7 +4,7 @@
       <div class="title">On this page</div>
     </header>
     <ul>
-      <li *ngFor="let title of titles">
+      <li *ngFor="let title of titles" class="doc-reviewer-item">
         <a [href]="getHash(title)" #menu>{{ title }}</a>
       </li>
     </ul>  

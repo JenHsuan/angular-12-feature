@@ -29,12 +29,20 @@ export class NullishCoalescingComponent {
   }
 
   legazyCode = `
+  calculateAge() {
+    return 1;
+  }
+
   <div class="item">
     {{age !== null && age !== undefined ? age : calculateAge() }}
   </div>
   `;
 
   newCode = `
+  calculateAge() {
+    return 1;
+  }
+  
   <div class="item">
     {{ age ?? calculateAge() }}
   </div>

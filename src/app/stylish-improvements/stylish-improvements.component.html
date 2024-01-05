@@ -7,7 +7,7 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        There are a few improvements of stylishment in Angular 12.
+        There are a few improvements for style in Angular 12.
       </div>
       <div class="item">
         <ol>
@@ -122,19 +122,89 @@
   </app-section-container>
   
   <app-section-container>
-    <div class="title" id="usetailwindcssinangular" title>Use TailwindCSS in Angular</div>
+    <div class="title" id="introductiontotailwindcss" title>Introduction to TailwindCSS</div>
     <div class="description-container">
       <div class="item">
-        TailwindCSS is an utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+        <a href="https://tailwindcss.com/">
+          TailwindCSS
+        </a> is an utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
       </div>
       <div class="item">
-        There are some reasons to use TailwindCSS instead of the traditional CSS.
+        <app-code-container
+          [code]="exampleTailwindCSS"
+          [languages]="['html', 'typescript']">
+        </app-code-container>
       </div>
-      <ul>
+      <div class="item">
+        The following result demostrate the TailwindCSS works.
+      </div>
+      <div class="item">
+        <div class="top-[10px] max-w-screen-md mt-3 mx-auto bg-rose-950 rounded-xl shadow-md overflow-hidden md:max-w-screen-lg hover:bg-gray-300">
+          <div class="md:flex">
+            <div class="md:flex-shrink-0">
+              <img class="h-48 w-full object-cover md:h-full md:w-48" src="../../assets/image/angular-logo.png" alt="">
+            </div>
+            <div class="p-[8px]">
+              <div class="uppercase py-3 text-6xl text-white font-semibold">Note of Angular 12</div>
+              <h1 class="py-3 text-3xl font-bold text-red-600 mb-0">Produced by Jen-Hsuan Hsieh</h1>
+              <p class="py-1 mb-0 text-gray-100">
+                {{titleList}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        There are a few advantages for using TailwindCSS instead of the traditional CSS.
+      </div>
+      <ol>
         <li>
-          <div class="item"></div>
+          <div class="item">
+            TailwindCSS provides many pre-defined classes. It's clear to understand what's the effect of the CSS style class. 
+          </div>
         </li>
-      </ul>
+        <li>
+          <div class="item">
+            The styles between elements will be consistent because there is a global configuration file, which is better than the inline CSS.
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            We are allowed to write psuedo class and the media class, which is better than the inline CSS.
+          </div>
+        </li>
+      </ol>
+      <div class="item">
+        In Angular 12, we can use the
+        <a href="https://v2.tailwindcss.com/docs/just-in-time-mode">
+          JIT (Just-In-Time) mode
+        </a> to generate CSS files when writing HTML files.
+      </div>
+      <div class="item">
+        <ol>
+          <li>
+            <div class="item">
+              It reduces the loading time.
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              We are allowed to use psuedo elements without override variants.
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              We are allowed to create a new class with any values in the HTML. (e.g., top-[10px])
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title" id="usetailwindcssinangular" title>Use TailwindCSS in Angular</div>
+    <div class="description-container">
       <div class="item">
         There are steps to set up the TailwindCSS in Angular.
       </div>
@@ -153,24 +223,66 @@
           </li>
           <li>
             <div class="item">
-              Generate tailwind.config.js.
-            </div>
-            <div class="item">
-              <app-code-container
-                [code]="initTailwindCSS"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
-            </div>
-          </li>
-          <li>
-            <div class="item">
               Update the style.scss.
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    base: provide 
+                    <a href="https://necolas.github.io/normalize.css/">
+                      normalize.css
+                    </a> to reset to the default CSS style.
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    components
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    utilities: pre-fined CSS classes
+                  </div>
+                </li>
+              </ul>
             </div>
             <div class="item">
               <app-code-container
                 [code]="updateStyle"
                 [languages]="['typescript', 'html']">
               </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Generate tailwind.config.js.
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    Use the following command.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="initTailwindCSS"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    We'll get an empty config file.
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="originalConfig"
+                      [languages]="['typescript', 'html']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
             </div>
           </li>
           <li>
@@ -186,25 +298,20 @@
           </li>
         </ol>
       </div>
-      <div class="item">
-        The following result demostrate the TailwindCSS works.
-      </div>
-      <div class="item">
-        <div class="max-w-md mt-3 mx-auto bg-rose-950 rounded-xl shadow-md overflow-hidden md:max-w-screen-lg hover:bg-gray-300">
-          <div class="md:flex">
-            <div class="md:flex-shrink-0">
-              <img class="h-48 w-full object-cover md:h-full md:w-48" src="../../assets/image/angular-logo.png" alt="">
-            </div>
-            <div class="p-8">
-              <div class="uppercase py-3 text-6xl text-white font-semibold">Note of Angular 12</div>
-              <h1 class="py-3 text-3xl font-bold text-red-600 mb-0">Produced by Jen-Hsuan Hsieh</h1>
-              <p class="py-1 mb-0 text-gray-100">
-                {{titleList}}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- <button
+      (click)="light()"
+  id="light"
+  class="px-4 py-2 rounded-full bg-white border-gray-400 border-2"
+>
+  日間模式 <i class="fas fa-sun text-yellow-500"></i>
+</button>
+<button
+  id="dark"
+  (click)="dark()"
+  class="px-4 py-2 rounded-full bg-gray-700 border-gray-700 border-2 text-white"
+>
+  夜間模式<i class="fas fa-moon text-yellow-500"></i>
+</button> -->
     </div>
   </app-section-container>
 
@@ -236,6 +343,11 @@
         <li>
           <a href="https://5xcampus.com/posts/tailwind-css-plugin/">
             還在跟複雜的 CSS 的設定奮鬥嗎？用 Tailwind 來幫你實現真正的高效整潔！
+          </a>
+        </li>
+        <li>
+          <a href="https://ithelp.ithome.com.tw/articles/10234671">
+            Day 05 安裝 Tailwind CSS
           </a>
         </li>
       </ul>

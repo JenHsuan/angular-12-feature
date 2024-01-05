@@ -26,6 +26,7 @@ export class StylishImprovementsComponent {
     "Introduction",
     "Inline Sass in components",
     "Use new Sass API for Angular CDK and Angular Material code",
+    "Introduction to TailwindCSS",
     "Use TailwindCSS in Angular",
     "Reference"
   ];
@@ -33,10 +34,20 @@ export class StylishImprovementsComponent {
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef){}
+  constructor(private changeDetectorRef: ChangeDetectorRef){
+  }
 
   ngAfterViewInit() {
     this.changeDetectorRef.detectChanges();
+  }
+  
+  dark() {
+    document.documentElement.classList.add("dark");
+  }
+
+  light() {
+
+  document.documentElement.classList.remove("dark");
   }
   
   enableInlineStyle = `
@@ -163,34 +174,114 @@ export class StylishImprovementsComponent {
   npx tailwindcss init
   `;
 
-  updateStyle = `
-  //It'll effect my original CS styles
-  // @import 'tailwindcss/base';
+  exampleTailwindCSS = `
+  <!--
+  top-[10px]: top: 10px;
+  max-w-screen-md => max-width: 1rem (self-defined from theme)
+  mt-3 => margin-top: 0.75rem; 
+  mx-auto => margin-left: auto; margin-right: auto;
+  bg-rose-950 => background-color: rgb(76 5 25)
+  rounded-xl => border-radius: 0.75rem;
+  md:max-w-screen-lg => media query
+  hover:bg-gray-300 => psuedo class for hovering
+  -->
 
-  //It'll effect my original CS styles
-  // @import 'tailwindcss/components';
+  <div class="top-[10px] max-w-screen-md mt-3 mx-auto bg-rose-950 rounded-xl shadow-md overflow-hidden md:max-w-screen-lg hover:bg-gray-300">
+    <div class="md:flex">
+      <div class="md:flex-shrink-0">
+        <img class="h-48 w-full object-cover md:h-full md:w-48" src="../../assets/image/angular-logo.png" alt="">
+      </div>
+      <div class="p-[8px]">
+        <div class="uppercase py-3 text-6xl text-white font-semibold">
+          Note of Angular 12
+        </div>
+        <h1 class="py-3 text-3xl font-bold text-red-600 mb-0">
+          Produced by Jen-Hsuan Hsieh
+        </h1>
+        <p class="py-1 mb-0 text-gray-100">
+          {{titleList}}
+        </p>
+      </div>
+    </div>
+  </div>`;
+
+  updateStyle = `
+  //It'll effect the global CSS style
+  @import 'tailwindcss/base';
+
+  @import 'tailwindcss/components';
 
   @import 'tailwindcss/utilities';
   `;
 
+  originalConfig = `
+  module.exports = {
+    theme: {
+      extend: {},
+    },
+    variants: {},
+    plugins: [],
+  }
+  `;
+  
   updatedConfig = `
   module.exports = {
     /* enable the JIT mode */
     mode: 'jit',
     
     /* 
-     * Specify the files to be parsed inthe purge 
-     * because the JIT mode will only bundle the required files
+     * Specify the files to be parsed in the purge option 
+     * The JIT mode will only bundle the required files
      */
     purge: {
       enabled: true,
       content: ["./src/**/*.html", "./src/**/*.scss"],
     },
+
     theme: {
-      extend: {},
+      /*
+       * override the screen width for the responsible design
+       * usage: max-w-screen-md
+       */
+      screens: {
+        xs: '360px',
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1440px',
+      },
+
+      /*
+       * override the rounded-xl
+       * origin: 0.75rem
+       * now: 1rem
+       * 
+       * usage: rounded-xl
+       */
+      borderRadius: {
+        xl: '1rem',
+      },
+
+      /*
+       * override the red-600
+       * usage: text-red-600, bg-red-600
+       */
+      colors: {
+        red: {
+          ...defaultTheme.theme?.colors.red,
+          600: "#E53935",
+        },
+      },
     },
     variants: {
-      extend: {},
+      /*
+       * enable the hover effect for the background color 
+       * (we won't have to add this affter enabling the JIT mode)
+       * usage: hover:bg-gray-300
+       */
+      extend: {
+        backgroundColor: ['hover']
+      },
     },
     plugins: [],
   }
