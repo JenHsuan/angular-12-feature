@@ -145,7 +145,6 @@ export class DeprecationsComponent {
 
   tsconfigProd = `
   //tsconfig.lib.prod.json
-
   {
     "extends": "./tsconfig.lib.json",
     "compilerOptions": {

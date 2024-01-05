@@ -230,13 +230,10 @@ export class StylishImprovementsComponent {
     mode: 'jit',
     
     /* 
-     * Specify the files to be parsed in the purge option 
+     * Specify the files to be parsed
      * The JIT mode will only bundle the required files
      */
-    purge: {
-      enabled: true,
-      content: ["./src/**/*.html", "./src/**/*.scss"],
-    },
+    content: ["./src/**/*.html", "./src/**/*.scss"],
 
     theme: {
       /*

@@ -4,10 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.html", "./src/**/*.scss"],
-  },
+  content: ["./src/**/*.html", "./src/**/*.scss"],
   darkMode: "class", 
   theme: {
     screens: {

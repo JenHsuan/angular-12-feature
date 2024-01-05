@@ -7,18 +7,21 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        Currently there is no way to configure interceptors in <b>HttpClient</b> on per request basis.
+        Before v12, there is no way to configure interceptors in <b>HttpClient on per request basis</b>.
         Suppose that we have an interceptor to alert the error message if the proxy is not ready.
       </div>
       <div class="item">
-        <ul>
+        There are a few questions.
+      </div>
+      <div class="item">
+        <ol>
           <li>
             All response will be applied to this interceptor.
           </li>
           <li>
             How do we bypass this interceptor for some requests?
           </li>
-        </ul>
+        </ol>
       </div>
       <div class="item">
         <app-code-container
