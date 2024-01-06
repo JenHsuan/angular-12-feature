@@ -1,6 +1,6 @@
 .sider-bar {
   width: 16em;
-  background-color: #fff;
+  background: var(--background-default);
 
   .tabs {
     width: 16em;
@@ -8,14 +8,14 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border: 1px solid #cecece;
+    background-color: var(--background-default);
+    border: 1px solid var(--background-gray);
     height: 100%;
     .title-container {
       display: flex;
       justify-content: center;
       text-decoration: none;
-      color: #000;
+      color: var(--foreground-default);
       font-size: 1.1em;
       margin-left: 1em;
       img {
@@ -29,10 +29,17 @@
         text-align: left;
         font-style: normal;
         font-weight: 400;
-        background-color: #fff;
+        background-color: var(--background-default);
         margin: 1em 0;
         line-height: 1.2em;
       }
+    }
+
+    .theme-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2em;
+      cursor: pointer;
     }
   }
       
@@ -42,21 +49,21 @@
     margin: 0 0.1em 0.7em 0.1em;
     padding: .3em;
     border-radius: .1em;
-    background-color: #fff;
+    background-color: var(--background-default);
     cursor: pointer;
     font-style: normal;
     font-weight: 400;
     border: none;
-    color: #7c7676;
+    color: var(--foreground-light);
     &.current {
-      color: #fff;
-      background-color: #2b2828;
+      color: var(--background-default);
+      background-color: var(--foreground-quaternary);
       &:hover {
-        color: #fff;
+        color: var(--background-default);
       }
     }
     &:hover {
-      color: #000;
+      color: var(--foreground-default);
       font-weight: 500;
     }
   }

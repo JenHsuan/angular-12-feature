@@ -14,7 +14,7 @@
       align-items: center;
       border-radius: 50%;
       background-color: rgb(232, 230, 229);
-      border: 1px solid #000;
+      border: 1px solid var(--foreground-default);
       margin-left: 2em;
       opacity: .7;
       transition: transform .3s ease-in,-webkit-transform .3s ease-in,-moz-transform .3s ease-in;

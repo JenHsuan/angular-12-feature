@@ -14,7 +14,8 @@
   padding-bottom: 2em;
   font-style: normal;
   font-weight: 400;
-  border-bottom: 1px solid oklch(97.12% .002 325.59);
+  color: var(--foreground-default);
+  border-bottom: 1px solid var(--foreground-secondary);
   .item {
     margin: .4em 0;
   }
@@ -32,7 +33,7 @@
   font-size: 1.1em;
   margin: 0 auto;
   padding-bottom: 2em;
-  border-bottom: 1px solid oklch(97.12% .002 325.59);
+  border-bottom: 1px solid var(--foreground-secondary);
 }
 
 .debugging-container {
@@ -62,7 +63,7 @@
   padding-bottom: 2em;
   font-style: normal;
   font-weight: 400;
-  border-bottom: 1px solid oklch(97.12% .002 325.59);
+  border-bottom: 1px solid var(--foreground-secondary);
   .item {
     margin: .4em 0;
   }
@@ -72,6 +73,7 @@
   font-size: 1.8em;
   font-weight: 300;
   font-family: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--foreground-default);
   text-align: center;
   margin: 1em 0;
   font-style: normal;
@@ -96,7 +98,7 @@
     }
   }
   .time-line-item {
-    border: 1px solid #000;
+    border: 1px solid var(--foreground-default);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -105,13 +107,13 @@
     padding-left: .2em;
     width: 6em;
     height: 6em;
-    background: oklch(97.12% .002 325.59);
+    background: var(--foreground-secondary);
     &::before {
       content: '';
       width: 3em;
       position: absolute;
       right: 6.2em;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid var(--foreground-default);
     }
   }
 }

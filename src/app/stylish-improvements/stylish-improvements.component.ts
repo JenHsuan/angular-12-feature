@@ -7,14 +7,14 @@ import { SectionContainerComponent } from '../public/section-container/section-c
   templateUrl: './stylish-improvements.component.html',
   styles: [`
     .inline-style-demo-btn {
-      background-color: #ffffff;
+      background-color: var(--background-default);
       color: #1e90ff;
       border: 1px solid #1e90ff;
       padding: 5px;
   }
   `, `
   .inline-style-demo-btn2 {
-      background-color: #ffffff;
+      background-color: var(--background-default);
       color: #1e90ff;
       border: 1px solid #1e90ff;
       padding: 5px;

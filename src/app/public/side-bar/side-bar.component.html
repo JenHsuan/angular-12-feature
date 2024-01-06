@@ -1,7 +1,7 @@
 <div class="sider-bar">
   <div class="tabs">
     <a class="title-container" href="/#/home">
-      <img src="../assets/image/angular-logo.png" alt="">
+      <img [src]="currentImage" alt="">
       <div class="title">
         {{title}}
       </div>
@@ -12,5 +12,8 @@
       mat-button>
       {{getRouteTitle(item)}}
     </button>
+    <div class="theme-container">
+      <app-theme></app-theme>
+    </div>
   </div>
 </div>

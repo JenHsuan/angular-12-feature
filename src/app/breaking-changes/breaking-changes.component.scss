@@ -11,7 +11,7 @@
     margin: 0;
     margin-top: 1em;
     font-size: 1.3em;
-    color: #000;
+    color: var(--foreground-default);
   }
   ul {
     list-style: none;
@@ -28,10 +28,10 @@
         }
       }
       .active {
-        color: oklch(51.74% .25453048882711515 315.26261625862725);
+        color: var(--foreground-active);
         &::before {
           content: '';
-          border-left: 2px solid oklch(51.74% .25453048882711515 315.26261625862725);
+          border-left: 2px solid var(--foreground-active);
         }
       }
     }

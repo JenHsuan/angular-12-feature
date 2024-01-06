@@ -1,7 +1,7 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { BYPASS_ALERT } from 'src/app/public/http-token/http-token';
+import { BYPASS_ALERT } from 'src/app/public/version-specific/http-token/http-token';
 
 const HEADER = 'Copyright@Sean Hsieh 2023';
 const PDF_NAME = 'chart.pdf';

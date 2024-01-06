@@ -23,13 +23,14 @@ import { TodoComponent } from './todo/todo.component';
 import { LanguageServiceComponent } from './language-service/language-service.component';
 import { HttpContextComponent } from './http-context/http-context.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { PageInterceptorInterceptor } from './public/page-interceptor/page-interceptor.interceptor';
+import { PageInterceptorInterceptor } from './public/version-specific/page-interceptor/page-interceptor.interceptor';
 import { DeprecationsContentChildrenComponent } from './deprecations/deprecations-content-children/deprecations-content-children.component';
 import { DocReviewerContainerComponent } from './public/doc-reviewer-container/doc-reviewer-container.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NavigationButtonContainerComponent } from './public/navigation-button-container/navigation-button-container.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PageContainerComponent } from './public/page-container/page-container.component';
+import { ThemeComponent } from './public/theme/theme.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PageContainerComponent } from './public/page-container/page-container.c
     DocReviewerContainerComponent,
     FooterComponent,
     NavigationButtonContainerComponent,
-    PageContainerComponent
+    PageContainerComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,
