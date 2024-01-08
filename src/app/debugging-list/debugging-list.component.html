@@ -1,0 +1,337 @@
+<app-page-container
+  [title]="title"
+  [sections]="sections"
+  [sectionTitles]="sectionTitles"
+  >
+  
+  <app-section-container>
+    <div class="title" id="introduction" title>Introduction</div>
+    <div class="description-container">
+      The content of this page was major collected from 
+      <a href="">
+        this YouTube play-list
+      </a>.
+      <div class="item">
+        I pick up some confused topics and introduced them in this section.
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <img src="../../assets/image/err_play_list.png" alt="">
+        </div>
+      </div>
+    </div>
+  </app-section-container>  
+
+  <app-section-container>
+    <div class="title" id="1.expressionhaschangedafteritwaschecked" title>
+      1. Expression has changed after it was checked
+    </div>
+    <div class="description-container">
+      <div class="item">
+        <b>
+          Symptom
+        </b>
+      </div>
+      <div class="item">
+        Please check the following example warning message.
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <img src="../../assets/image/err_1.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <b>
+          Root cause
+        </b>
+      </div>
+      <div class="item">
+        The view is supposed to be updated completely before ngAfterViewInit.
+      </div>
+      <div class="item">
+        So it'll throw the warning mesage if we should have a new change detection cycle in ngAfterViewInit.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            <div class="item">
+              Template
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="err1ExampleTemplate1"
+                [languages]="['html']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Component
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="err1ExampleComponent1"
+                [languages]="['typescript']">
+              </app-code-container>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <b>
+          Solution
+        </b>
+      </div>
+      <div class="item">
+        Use the following ways, Angular will detect the change on the next browser MicroTask.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="err1ExampleComponentSolution1"
+          [languages]="['typescript']">
+        </app-code-container>
+      </div>
+      <div class="item">
+        Or trigger a new change detection directly.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="err1ExampleComponentSolution2"
+          [languages]="['typescript']">
+        </app-code-container>
+      </div>
+    </div>
+  </app-section-container> 
+
+  <app-section-container>
+    <div class="title" id="2.circulardependencyindidetected" title>
+      2. Circular dependency in DI detected
+    </div>
+    <div class="description-container">
+      <div class="item">
+        <b>
+          Symptom
+        </b>
+      </div>
+      <div class="item">
+        Please check the following example warning message.
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <img src="../../assets/image/err_2.png" alt="">
+        </div>
+      </div><div class="item">
+        <b>
+          Root cause
+        </b>
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            <div class="item">
+              Services were injected to each other. Putting them to code dependent relationship.
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Whe a service was decorated with injectable and provided in root, Angular will initiate this class and make it visible throghout the entire application as singleton.
+            </div>
+            <div class="item">
+              We can not determine which service should be initiated first when they were independent to each other.
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="err2ExampleService"
+          [languages]="['typescript']">
+        </app-code-container>
+      </div>
+      <div class="item">
+        <b>
+          Solution
+        </b>
+      </div>
+      <div class="item">
+        Refactor one of services to minimize dependencies between services.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="err2ExampleSolution"
+          [languages]="['typescript']">
+        </app-code-container>
+      </div>
+    </div>  
+  </app-section-container>
+
+  <app-section-container>
+    <div class="title" id="3.nullinjectorerror:noproviderforclass" title>
+      3. NullInjectorError: No provider for class
+    </div>
+    <div class="description-container">
+      <div class="item">
+        <b>
+          Symptom
+        </b>
+      </div>
+      <div class="item">
+        Please check the following example warning message.
+      </div>
+      <div class="item">
+        <div class="image-container">
+          <img src="../../assets/image/err_3.png" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <b>
+          Root cause
+        </b>
+      </div>
+      <div class="item">
+        The service was injected without a provider.
+      </div>
+      <div class="item">
+        <b>
+          Solution
+        </b>
+      </div>
+      <div class="item">
+        <ol>
+          <li>
+            <div class="item">
+              Use providedIn parameter.
+            </div>
+            <div class="item">
+              <ul>
+                <li>
+                  <div class="item">
+                    root: provide the service in the root injector 
+                  </div>
+                  <div class="item">
+                    <ul>
+                      <li>
+                        <div class="item">
+                          The servcie will be provided as a global singleton.
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item">
+                          It can be used anywhere in the application but it may not always optimized solution.
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="rootProvider"
+                      [languages]="['typescript']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    NgModule: provide the service to an NgModule
+                  </div>
+                  <div class="item">
+                    <ul>
+                      <li>
+                        <div class="item">
+                          The service can be loaded from the app's main JavaScript bundle and loaded lazily when it becomes needed to improve the load time performance
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="featureProvider"
+                      [languages]="['typescript']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    any: initiate the service in multiple NgModule
+                  </div>
+                  <div class="item">
+                    <ul>
+                      <li>
+                        <div class="item">
+                          Instead of the global singleton, Each module will create their own instance of the service. 
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item">
+                          The service can be loaded from the app's main JavaScript bundle and loaded lazily for each modules.
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="featureProvider"
+                      [languages]="['typescript']">
+                    </app-code-container>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    platform: provide the service in the platform injector
+                  </div>
+                  <div class="item">
+                    <ul>
+                      <li>
+                        <div class="item">
+                          The service could be used in different application on one page (e.g., web component). 
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item">
+                    <app-code-container
+                      [code]="platformProvider"
+                      [languages]="['typescript']">
+                    </app-code-container>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="item">
+              Import the missing NgModule. It's not the preferred solution because it will make code more difficult to tree-shake.
+            </div>
+            <div class="item">
+              <app-code-container
+                [code]="importToAppModule"
+                [languages]="['typescript']">
+              </app-code-container>
+            </div>
+
+          </li>
+        </ol>
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- reference -->
+  <app-section-container>
+    <div class="title" id="reference" title>Reference</div>
+    <div class="reference-container">
+      <div class="item">
+        <ul>
+          <li>
+            <a href="https://blog.angular.io/angular-debugging-guides-dfe0ef915036">
+              Angular Debugging Guides
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=O47uUnJjbJc&list=PL1w1q3fL4pmi8SydlCdMdm7kCbHi-7wpS">
+              Debugging Playlist
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </app-section-container>
+</app-page-container>

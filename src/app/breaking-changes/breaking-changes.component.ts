@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, ContentChildren, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
-import { escapeHtml } from '../public/utils/utils';
 import { SectionContainerComponent } from '../public/section-container/section-container.component';
 
 @Component({
@@ -10,15 +9,12 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class BreakingChangesComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.BREAKING_CHANGE);
-  escapeHtml = escapeHtml;
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "New Feature of TypeScript 4.2",
     "Reference"
   ];
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(private cd: ChangeDetectorRef){}
 

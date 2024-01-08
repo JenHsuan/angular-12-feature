@@ -1,7 +1,7 @@
 <app-page-container
   [title]="title"
   [sections]="sections"
-  [sectionTitles]="titles"
+  [sectionTitles]="sectionTitles"
   >
   <app-section-container>
     <div class="title" id="overview" title>Overview</div>
@@ -86,7 +86,7 @@
               </app-code-container>
             </div>
           </li>
-          <li>Build the bundle.
+          <li>Start the dev server.
             <div class="item">
               <app-code-container
                 [code]="ngBuild"
@@ -94,15 +94,7 @@
               </app-code-container>
             </div>
           </li>
-          <li>Execute the Webpack build.
-            <div class="item">
-              <app-code-container
-                [code]="webpackBuild"
-                [languages]="['html']">
-              </app-code-container>
-            </div>
-          </li>
-          <li>It will open a browser on http://127.0.0.1.
+          <li>It will open a browser on http://127.0.0.1 automatically.
             <div class="item">
               <div class="image-container">
                 <img src="../../assets/image/webpack.png" alt="">
@@ -114,7 +106,7 @@
     </div>
   </app-section-container>
 
-  <app-section-container>
+  <!-- <app-section-container>
     <div class="title" id="webpack5newfeatures" title>
       Webpack 5 New Features
     </div>
@@ -141,7 +133,7 @@
         </ul>
       </div>
     </div>
-  </app-section-container>
+  </app-section-container> -->
 
   <!-- reference -->
   <app-section-container>

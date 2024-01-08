@@ -9,15 +9,14 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class NotesComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.NOTES);
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Overview",
     "Custom Webpack Configurations In Angular",
-    "Webpack 5 New Features",
+    //"Webpack 5 New Features",
     "Reference"
   ];
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(private cd: ChangeDetectorRef){}
 
@@ -37,9 +36,7 @@ export class NotesComponent {
   packagesInstallation = `
   npm install @angular-builders/custom-webpack@^12 --save-dev
   npm install @angular-devkit/build-angular@^12 --save-dev  
-  npm install webpack-bundle-analyzer@^4 --save-dev    
-  npm install -g webpack@^5
-  npm install -g webpack-cli@^5
+  npm install webpack-bundle-analyzer@^4 --save-dev
   `;
 
   angularJson = `
@@ -69,11 +66,7 @@ export class NotesComponent {
   `;
 
   ngBuild = `
-  ng build --prod --output-hashing none
-  `;
-
-  webpackBuild = `
-  webpack --profile --json build
+  npm start
   `;
 
   namedChunk = `

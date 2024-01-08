@@ -1,14 +1,22 @@
 <app-page-container
   [title]="title"
   [sections]="sections"
-  [sectionTitles]="titles"
+  [sectionTitles]="sectionTitles"
   >
   <app-section-container>
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        Before v12, there is no way to configure interceptors in <b>HttpClient on per request basis</b>.
+        Before v12, there is no way to configure interceptors in <b>HttpClient on per request basis</b> for customizing.
+      </div>
+      <div class="item">
         Suppose that we have an interceptor to alert the error message if the proxy is not ready.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="legacyInterceptor"
+          [languages]="['typescript', 'html']">
+        </app-code-container>
       </div>
       <div class="item">
         There are a few questions.
@@ -23,12 +31,6 @@
           </li>
         </ol>
       </div>
-      <div class="item">
-        <app-code-container
-          [code]="legacyInterceptor"
-          [languages]="['typescript', 'html']">
-        </app-code-container>
-      </div>
     </div>
   </app-section-container>
 
@@ -37,7 +39,8 @@
     <div class="description-container">
       <div class="item">
         In v12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
-        <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>. There are a few steps to pass metadata to the interceptor.
+        <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>. 
+        There are a few steps to pass metadata to the interceptor.
       </div>
       <div class="item">
         <ol>

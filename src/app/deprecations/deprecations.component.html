@@ -1,7 +1,7 @@
 <app-page-container
   [title]="title"
   [sections]="sections"
-  [sectionTitles]="titles"
+  [sectionTitles]="sectionTitles"
   >
   <app-section-container>
     <div class="title" id="introduction" title>Introduction</div>
@@ -75,8 +75,7 @@
               <ul>
                 <li>
                   <div class="item">
-                    When it's false, the change observable will emit even there is no changes.
-            The default value is true.
+                    When the emitDistinctChangesOnly is false, the change observable will emit even there is no changes (the default value is true).
                   </div>
                   <div class="item">
                     <app-code-container
@@ -333,6 +332,11 @@
           <li>
             <a href="https://stackoverflow.com/questions/62636918/what-are-the-reasons-for-adding-angular-postinstall-ngcc-script-in-the-proj">
               What are the reasons for adding angular postinstall "ngcc..." script in the project?
+            </a>
+          </li>
+          <li>
+            <a href="https://v12.angular.io/guide/content-projection">
+              Content projection document
             </a>
           </li>
         </ul>

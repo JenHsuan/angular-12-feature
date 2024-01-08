@@ -10,17 +10,16 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class StrictModeComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.STRICT_MODE);
-
-  data: number | undefined = 0;
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "TypeScript Strict Mode",
     "Angular Compiler Flags",
     "Reference"
   ];
+  data: number | undefined = 0;
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
 
   constructor(private cd: ChangeDetectorRef){}
 

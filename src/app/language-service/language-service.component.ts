@@ -9,15 +9,14 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class LanguageServiceComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.LANGUAGE_SERVICE);
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "New Feature",
     "Old Features",
     "Reference"
   ];
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(private cd: ChangeDetectorRef){}
 

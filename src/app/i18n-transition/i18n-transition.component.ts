@@ -9,13 +9,12 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class I18nTransitionComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.I18N_TRANSITION);
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "Reference"
   ];
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(private cd: ChangeDetectorRef){}
 

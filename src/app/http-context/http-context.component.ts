@@ -4,7 +4,6 @@ import { combineLatest } from 'rxjs';
 import { HttpContextService } from './service/http-context.service';
 import { SectionContainerComponent } from '../public/section-container/section-container.component';
 
-
 const PAGES = ['/'];
 
 @Component({
@@ -14,16 +13,14 @@ const PAGES = ['/'];
 })
 export class HttpContextComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.HTTP_CONTEXT);
-
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "Pass Metadata to Interceptors",
     "Demo",
     "Reference"
   ];
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(
     private service: HttpContextService,

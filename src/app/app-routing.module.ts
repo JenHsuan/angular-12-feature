@@ -8,12 +8,11 @@ import { DeprecationsComponent } from './deprecations/deprecations.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { I18nTransitionComponent } from './i18n-transition/i18n-transition.component';
 import { NullishCoalescingComponent } from './nullish-coalescing/nullish-coalescing.component';
-import { LearningResourceComponent } from './learning-resource/learning-resource.component';
 import { StylishImprovementsComponent } from './stylish-improvements/stylish-improvements.component';
 import { StrictModeComponent } from './strict-mode/strict-mode.component';
-import { TodoComponent } from './todo/todo.component';
 import { LanguageServiceComponent } from './language-service/language-service.component';
 import { HttpContextComponent } from './http-context/http-context.component';
+import { DebuggingListComponent } from './debugging-list/debugging-list.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -54,10 +53,6 @@ export const routes: Routes = [
     component: NullishCoalescingComponent
   },
   {
-    path: 'learning-resource',
-    component: LearningResourceComponent
-  },
-  {
     path: 'stylish-improvements',
     component: StylishImprovementsComponent
   },
@@ -66,16 +61,16 @@ export const routes: Routes = [
     component: StrictModeComponent
   },
   {
-    path: 'todo',
-    component: TodoComponent
-  },
-  {
     path: 'language-service',
     component: LanguageServiceComponent
   },
   {
     path: 'http-context',
     component: HttpContextComponent
+  },
+  {
+    path: 'debugging-playlist',
+    component: DebuggingListComponent
   }
 ];
 

@@ -17,20 +17,8 @@
       </div>
       <div class="histories">
         <ul>
-          <li>
-            <a [href]="v13Url">- Notes of Angular v13</a>
-          </li>
-          <li>
-            <a [href]="v14Url">- Notes of Angular v14</a>
-          </li>
-          <li>
-            <a [href]="v15Url">- Notes of Angular v15</a>
-          </li>
-          <li>
-            <a [href]="v16Url">- Notes of Angular v16</a>
-          </li>
-          <li>
-            <a [href]="v17Url">- Notes of Angular v17</a>
+          <li *ngFor="let item of urlMap | keyvalue">
+            <a [href]="item.value">{{ item.key }}</a>
           </li>
         </ul>
       </div>
@@ -43,7 +31,7 @@
     </div>
     <div class="footer-container">
       <div>
-        Curated by <a href="https://www.linkedin.com/in/jen-hsuan-hsieh-6a13347a/">Jen-hsuan Hsieh (Sean)</a>
+        Curated by <a [href]="authorUrl">Jen-hsuan Hsieh (Sean)</a>
         © 2024 - 2034
       </div>
     </div>

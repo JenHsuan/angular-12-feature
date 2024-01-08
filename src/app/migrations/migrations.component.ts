@@ -9,6 +9,20 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class MigrationsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.MIGRATIONS);
+  sectionTitles = [
+    "Introduction",
+    "Official Migration Guide",
+    "Reference"
+  ];
+
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
+
+  constructor(private cd: ChangeDetectorRef){}
+
+  //Trigger change detection because we pass the viewChildren to app-page-container as parameters, which will cause the view change after ngAfterViewInit
+  ngAfterViewInit() {
+    this.cd.detectChanges();
+  }
 
   instruction = `
   npx @angular/cli@12 new Angular12Project
@@ -17,19 +31,4 @@ export class MigrationsComponent {
   updateInstruction = `
   npx @angular/cli@12 update @angular/core@12 @angular/cli@12
   `;
-
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
-    "Introduction",
-    "Official Migration Guide",
-    "Reference"
-  ];
-
-  constructor(private cd: ChangeDetectorRef){}
-
-  //Trigger change detection because we pass the viewChildren to app-page-container as parameters, which will cause the view change after ngAfterViewInit
-  ngAfterViewInit() {
-    this.cd.detectChanges();
-  }
 }

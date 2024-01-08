@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTE_MAP, ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
-import { timelineUrl, v13Url, v14Url, v15Url, v16Url, v17Url } from '../public/config/url';
+import { authorUrl, timelineUrl, v13Url, v14Url, v15Url, v16Url, v17Url } from '../public/config/url';
 import { Router } from '@angular/router';
 import { ThemeService } from '../public/theme/service/theme.service';
 import { ThemeType } from '../public/theme/domain/theme.damin';
@@ -12,13 +12,16 @@ import { ThemeType } from '../public/theme/domain/theme.damin';
 })
 export class HomeComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.HOME);
-  v13Url = v13Url;
-  v14Url = v14Url;
-  v15Url = v15Url;
-  v16Url = v16Url;
-  v17Url = v17Url;
   timelineUrl = timelineUrl;
   currentImage: string = "";
+  authorUrl = authorUrl;
+  urlMap = new Map<string, string>([
+    ["Notes of Angular v13", v13Url],
+    ["Notes of Angular v14", v14Url],
+    ["Notes of Angular v15", v15Url],
+    ["Notes of Angular v16", v16Url],
+    ["Notes of Angular v17", v17Url],
+  ]);
 
   private themeImageMap = new Map<ThemeType, string>([
     [ThemeType.light, "../assets/image/angular-logo.png"],

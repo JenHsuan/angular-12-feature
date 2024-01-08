@@ -9,14 +9,13 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class NullishCoalescingComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.NULLISH_COALESCING);
-
+  sectionTitles = [
+    "Introduction"
+  ];
   age: number | null = null;
 
   @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
-  titles = [
-    "Introduction"
-  ];
 
   constructor(private cd: ChangeDetectorRef){}
 

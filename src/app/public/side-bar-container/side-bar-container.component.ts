@@ -6,17 +6,17 @@ import { ThemeType } from '../theme/domain/theme.damin';
 import { ThemeService } from '../theme/service/theme.service';
 
 @Component({
-  selector: 'app-side-bar',
-  templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+  selector: 'app-side-bar-container',
+  templateUrl: './side-bar-container.component.html',
+  styleUrls: ['./side-bar-container.component.scss']
 })
-export class SideBarComponent {
+export class SideBarContainerComponent {
   title = 'Notes of Angular v12';
   selectedRoute = ROUTE_TYPE.HOME;
   
   sideBarList = sideBarList;
 
-  private themeImageMap = new Map<ThemeType, string>([
+  themeImageMap = new Map<ThemeType, string>([
     [ThemeType.light, "../assets/image/angular-logo.png"],
     [ThemeType.dark, "../assets/image/angular-logo-dark.png"]
   ]);

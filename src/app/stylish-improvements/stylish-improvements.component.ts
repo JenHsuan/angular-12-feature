@@ -22,7 +22,7 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class StylishImprovementsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.STYLISH_IMPROVEMENTS);
-  titles = [
+  sectionTitles = [
     "Introduction",
     "Inline Sass in components",
     "Use new Sass API for Angular CDK and Angular Material code",

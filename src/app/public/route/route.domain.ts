@@ -11,8 +11,9 @@ export enum ROUTE_TYPE {
   STYLISH_IMPROVEMENTS = 'STYLISH_IMPROVEMENTS',
   STRICT_MODE = 'STRICT_MODE',
   LANGUAGE_SERVICE = 'LANGUAGE_SERVICE',
-  TODO = 'TODO',
-  HTTP_CONTEXT = 'HTTP_CONTEXT'
+  //TODO = 'TODO',
+  HTTP_CONTEXT = 'HTTP_CONTEXT',
+  DEBUGGING_PLAYLIST = 'DEBUGGING_PLAYLIST'
 }
 
 export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
@@ -24,12 +25,12 @@ export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
   ['/http-context', ROUTE_TYPE.HTTP_CONTEXT],
   ['/nullish-coalescing', ROUTE_TYPE.NULLISH_COALESCING],
   ['/stylish-improvements', ROUTE_TYPE.STYLISH_IMPROVEMENTS],
+  ['/notes', ROUTE_TYPE.NOTES],
   ['/i18n-transition', ROUTE_TYPE.I18N_TRANSITION],
+  ['/debugging-playlist', ROUTE_TYPE.DEBUGGING_PLAYLIST],
   ['/strict-mode', ROUTE_TYPE.STRICT_MODE],
   ['/language-service', ROUTE_TYPE.LANGUAGE_SERVICE],
-  ['/notes', ROUTE_TYPE.NOTES],
-  ['/learning-resource', ROUTE_TYPE.LEARNING_RESOURCE],
-  ['/todo', ROUTE_TYPE.TODO],
+  //['/todo', ROUTE_TYPE.TODO],
 ]);
 
 export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
@@ -39,14 +40,14 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.DEPRECATIONS, 'Deprecations'],
   [ROUTE_TYPE.NOTES, 'Minor Features'],
   [ROUTE_TYPE.DOCUMENTS, 'Official Documents'],
-  [ROUTE_TYPE.LEARNING_RESOURCE, 'Official New Learning Resources'],
   [ROUTE_TYPE.I18N_TRANSITION, 'Bugfix - i18n message ID transition'],
-  [ROUTE_TYPE.NULLISH_COALESCING, 'New Feature - Nullish Coalescing is Enabled on Template'],
+  [ROUTE_TYPE.DEBUGGING_PLAYLIST, 'Instructions - [Debugging] Angular Error Messages'],
+  [ROUTE_TYPE.NULLISH_COALESCING, 'Feature - Nullish Coalescing'],
   [ROUTE_TYPE.STRICT_MODE, 'Enhancement - Enable the Strict Mode on TypeScript and Angular by Default'],
-  [ROUTE_TYPE.STYLISH_IMPROVEMENTS, 'New Feature - Stylish Improvements'],
+  [ROUTE_TYPE.STYLISH_IMPROVEMENTS, 'Feature - Stylish Improvements'],
   [ROUTE_TYPE.LANGUAGE_SERVICE, 'Enhancement - Angular Language Service with Ivy'],
-  [ROUTE_TYPE.TODO, 'Todo list'],
-  [ROUTE_TYPE.HTTP_CONTEXT, 'New Feature - Pass Metadata to Interceptors'],
+  //[ROUTE_TYPE.TODO, 'Todo list'],
+  [ROUTE_TYPE.HTTP_CONTEXT, 'Feature - Pass Metadata to Interceptors']
 ]);
 
 export const sideBarList = [
@@ -57,10 +58,10 @@ export const sideBarList = [
   ROUTE_TYPE.HTTP_CONTEXT,
   ROUTE_TYPE.NULLISH_COALESCING,
   ROUTE_TYPE.STYLISH_IMPROVEMENTS,
+  ROUTE_TYPE.NOTES,
   ROUTE_TYPE.I18N_TRANSITION,
+  ROUTE_TYPE.DEBUGGING_PLAYLIST,
   ROUTE_TYPE.STRICT_MODE,
   ROUTE_TYPE.LANGUAGE_SERVICE,
-  ROUTE_TYPE.NOTES,
-  ROUTE_TYPE.LEARNING_RESOURCE,
-  ROUTE_TYPE.TODO
+  //ROUTE_TYPE.TODO
 ];

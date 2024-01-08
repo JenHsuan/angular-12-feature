@@ -1,7 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
-import { escapeHtml } from '../public/utils/utils';
-import { DeprecationsContentChildrenComponent } from './deprecations-content-children/deprecations-content-children.component';
 import { SectionContainerComponent } from '../public/section-container/section-container.component';
 
 @Component({
@@ -11,21 +9,18 @@ import { SectionContainerComponent } from '../public/section-container/section-c
 })
 export class DeprecationsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.DEPRECATIONS);
-  escapeHtml = escapeHtml;
-  
-  items:number[] = [];
-  cnt = 0;
-
-  @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
-  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
-
-  titles = [
+  sectionTitles = [
     "Introduction",
     "Differences between View Enginee and Ivy",
     "Incremental DOM",
     "Enable Ivy for applications before v12",
     "Reference"
   ];
+  items: number[] = [];
+  cnt = 0;
+
+  @ViewChild("itemWrapper", {read: ElementRef}) itemWrapper: ElementRef;
+  @ViewChildren(SectionContainerComponent, {read: ElementRef}) sections: QueryList<ElementRef> | undefined;
 
   constructor(private cd: ChangeDetectorRef){}
 
