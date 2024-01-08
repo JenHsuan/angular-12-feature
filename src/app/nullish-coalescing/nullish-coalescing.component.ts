@@ -18,10 +18,11 @@ export class NullishCoalescingComponent {
     "Introduction"
   ];
 
-  constructor(private changeDetectorRef: ChangeDetectorRef){}
+  constructor(private cd: ChangeDetectorRef){}
 
+  //Trigger change detection because we pass the viewChildren to app-page-container as parameters, which will cause the view change after ngAfterViewInit
   ngAfterViewInit() {
-    this.changeDetectorRef.detectChanges();
+    this.cd.detectChanges();
   }
 
   calculateAge() {
@@ -42,7 +43,7 @@ export class NullishCoalescingComponent {
   calculateAge() {
     return 1;
   }
-  
+
   <div class="item">
     {{ age ?? calculateAge() }}
   </div>

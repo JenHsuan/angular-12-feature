@@ -25,13 +25,15 @@ export class HttpContextComponent {
     "Reference"
   ];
 
-  ngAfterViewInit() {
-    this.changeDetectorRef.detectChanges();
-  }
   constructor(
     private service: HttpContextService,
-    private changeDetectorRef: ChangeDetectorRef
+    private cd: ChangeDetectorRef
   ) { }
+  
+  //Trigger change detection because we pass the viewChildren to app-page-container as parameters, which will cause the view change after ngAfterViewInit
+  ngAfterViewInit() {
+    this.cd.detectChanges();
+  }
   
   printFromServer(byPassAlert: boolean) {
     combineLatest(PAGES.map(page => this.service.exportPdfFromServer(page, byPassAlert))).subscribe();

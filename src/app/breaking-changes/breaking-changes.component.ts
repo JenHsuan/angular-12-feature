@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, ContentChildren, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
 import { escapeHtml } from '../public/utils/utils';
-import { startWith } from 'rxjs/operators';
 import { SectionContainerComponent } from '../public/section-container/section-container.component';
 
 @Component({
@@ -21,10 +20,11 @@ export class BreakingChangesComponent {
     "Reference"
   ];
 
-  constructor(private changeDetectorRef: ChangeDetectorRef){}
+  constructor(private cd: ChangeDetectorRef){}
 
+  //Trigger change detection because we pass the viewChildren to app-page-container as parameters, which will cause the view change after ngAfterViewInit
   ngAfterViewInit() {
-    this.changeDetectorRef.detectChanges();
+    this.cd.detectChanges();
   }
 
   smarterTypeAlias = `

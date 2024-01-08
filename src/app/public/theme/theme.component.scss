@@ -1,3 +1,6 @@
 .icon {
-  color: var( --foreground-default);
+  color: var( --primary-default);
+  &:hover {
+    color: var( --foreground-default);
+  }
 }

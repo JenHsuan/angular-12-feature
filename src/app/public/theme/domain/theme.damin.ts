@@ -31,7 +31,7 @@ export const dark: Theme = {
 
     "--background-default": "#000",
 
-    "--primary-default": "#8c8a8a",
+    "--primary-default": "#cecece",
     
     "--logo": "../assets/image/angular-logo-dark.png"
   }
