@@ -7,7 +7,16 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        There are a few steps to upgrade the Angular version from 11 to 12.
+        The following command allow us to create a new project in v12.
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="instruction"
+          [languages]="['html']">
+        </app-code-container>
+      </div>
+      <div class="item">
+        There are a few steps to upgrade existed projects to v12.
       </div>
       <div class="item">
         <ol>
@@ -16,26 +25,10 @@
               Upgrade the application with the following commands.
             </div>
             <div class="item">
-              <ul>
-                <li>
-                  For creating a new project
-                  <div class="item">
-                    <app-code-container
-                      [code]="instruction"
-                      [languages]="['html']">
-                    </app-code-container>
-                  </div>
-                </li>
-                <li>
-                  For the existed project
-                  <div class="item">
-                    <app-code-container
-                      [code]="updateInstruction"
-                      [languages]="['html']">
-                    </app-code-container>
-                  </div>
-                </li>
-              </ul>
+              <app-code-container
+                [code]="updateInstruction"
+                [languages]="['html']">
+              </app-code-container>
             </div>
           </li>
           <li>
@@ -60,7 +53,7 @@
     <div class="description-container">
       <div class="item">
         Please also refer to the 
-        <a href="">official migration guide</a>.  
+        <a href="">official migration guide</a> if you need more details.  
       </div>
       <div class="item">
         <div class="image-container">

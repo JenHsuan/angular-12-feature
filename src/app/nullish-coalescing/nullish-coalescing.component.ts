@@ -29,8 +29,11 @@ export class NullishCoalescingComponent {
   }
 
   legazyCode = `
-  calculateAge() {
-    return 1;
+  export class NullishCoalescingComponent {
+    age: number | null = null;
+    calculateAge() {
+      return 1;
+    }
   }
 
   <div class="item">
@@ -39,8 +42,11 @@ export class NullishCoalescingComponent {
   `;
 
   newCode = `
-  calculateAge() {
-    return 1;
+  export class NullishCoalescingComponent {
+    age: number | null = null;
+    calculateAge() {
+      return 1;
+    }
   }
 
   <div class="item">

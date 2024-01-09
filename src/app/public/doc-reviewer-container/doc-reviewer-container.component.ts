@@ -36,8 +36,6 @@ export class DocReviewerContainerComponent {
         if (index !== this.currentIndex) {
           this.menu?.get(index)?.nativeElement.classList.remove("active")}
       })
-
-      
     });
   }
 

@@ -29,20 +29,20 @@ export class BreakingChangesComponent {
   | { kind: "square"; size: number }
   | { kind: "rectangle"; width: number; height: number };
 
-  declare let shape: Shape;
-
   // Previously: { kind: "circle"; radius: number; | { kind: "square"; size: number; | { kind: "rectangle"; width: number; height: number; | undefined
   // Currently: Shape | undefined
   declare let optionalShape: Shape | undefined;
   `;
 
   restElems = `
+  //declare a variable in the list type with the rest element 
   let foo: [...string[], number];
 
   foo = [123];
   foo = ["hello", 123];
   foo = ["hello!", "hello!", "hello!", 123];
 
+  //declare a variable in the list type with the rest element
   let bar: [boolean, ...string[], boolean];
 
   bar = [true, false];
@@ -63,6 +63,8 @@ export class BreakingChangesComponent {
 
 
   update = `
+  //We can upgrade ngZone with the following command
+
   ng update
   `;
 
@@ -87,6 +89,8 @@ export class BreakingChangesComponent {
   console.log(c.foo);
   //          ~~~~ Error!
   // Property 'foo' comes from an index signature, so it must be accessed with ['foo'].
+
+  console.log(c["foo"]);
   `;
 
   unused = `
@@ -144,6 +148,8 @@ export class BreakingChangesComponent {
  
   type AbstractConstructor<T> = abstract new (...args: any[]) => T
  
+  //This is a mixin funnction that accepts a constructor and return an abstract class
+  //It will add the "getStyles" method on the given constructor
   function withStyles<T extends AbstractConstructor<object>>(Ctor: T) {
     abstract class StyledClass extends Ctor {
         getStyles() {
@@ -153,6 +159,7 @@ export class BreakingChangesComponent {
     return StyledClass;
   }
  
+  //Extend the abstract class returned by the mixin function
   class SubClass extends withStyles(SuperClass) {
     someMethod() {
         this.someMethod()

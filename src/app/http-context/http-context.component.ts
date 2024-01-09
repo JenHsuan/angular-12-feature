@@ -37,6 +37,7 @@ export class HttpContextComponent {
   }
 
   legacyInterceptor = `
+  //Inject it to the application level by importing it in the app.module.ts
   @Injectable()
   export class PageInterceptorInterceptor implements HttpInterceptor {
 
@@ -95,14 +96,27 @@ export class HttpContextComponent {
   }`;
 
   httpContextToken = `
-  //HttpContextToken class
-  class HttpContextToken<T> {
-    constructor(defaultValue: () => T)
-    defaultValue: () => T
-  }
-
-  //example code
   import { HttpContextToken } from "@angular/common/http";
   export const BYPASS_ALERT = new HttpContextToken<boolean>(() => false);
+  `;
+
+  importToAppModule = `
+  import { HTTP_INTERCEPTORS } from '@angular/common/http';
+  
+  @NgModule({
+    declarations: [
+      AppComponent,
+    ],
+    imports: [],
+    providers: [
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: PageInterceptorInterceptor,
+        multi: true,
+      }
+    ],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
   `;
 }

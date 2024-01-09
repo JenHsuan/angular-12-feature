@@ -8,7 +8,7 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        There are a few breaking changes in Angular 12.
+        There are a few breaking changes in v12.
       </div>
       <div class="item">
         <ol>
@@ -24,7 +24,7 @@
             <a href="https://angular.io/guide/versions">(Version Compatibility)</a>
           </li>
           <li>
-            v12 requires zone.js v0.11.4. Can upgrade with the following command.
+            v12 requires zone.js v0.11.4.
             <div class="item">
               <app-code-container
                 [code]="update"
@@ -41,10 +41,10 @@
     <div class="title" id="newfeatureoftypescript4.2" title>New Features of TypeScript 4.2</div>
     <div class="description-container">
       <div class="item">
-        There are a few new features in TypeScript 4.2. I pick up some confused topics and introduced them in this section.
+        There are a few new features in TypeScript 4.2. I pick up some useful topics in this section.
       </div>
       <div class="item">
-        <ul>
+        <ol>
           <li>
             <div class="item">
               <b>
@@ -55,7 +55,7 @@
               </b>
             </div>
             <div class="item">
-              Reduce the size of error messages of hover hints.
+              Now the size of error messages of hover hints is reduced.
             </div>
             <div class="item">
               <app-code-container
@@ -74,18 +74,18 @@
               </b>
             </div>
             <div class="item">
-              Now rest elements can occur anywhere within a tuple. But it's restricted to two scenarios.
+              Now rest elements can occur anywhere within a tuple but there are two restrictions.
             </div>
             <div class="item">
               <ol>
                 <li>
                   <div class="item">
-                    Unallowed to put the rest elements after another rest elements
+                    Unallowed to place the rest elements after other rest elements
                   </div>
                 </li>
                 <li>
                   <div class="item">
-                    Unallowed to put the rest elements in front of the optional parameter
+                    Unallowed to place the rest elements before the optional parameter
                   </div>
                 </li>
               </ol>
@@ -100,14 +100,14 @@
           <li>
             <div class="item">
               <b>
-              --noPropertyAccessFromIndexSignature: 
+              New tsconfig option: --noPropertyAccessFromIndexSignature 
                 <a href="https://www.cnblogs.com/laggage/p/explain-some-options-of-tsconfig.html">
                   (reference)
                 </a>
               </b>
             </div>
             <div class="item">
-              We are only allowed to get properties declared by <b>index signature</b> with <b>bracketed</b> element access syntax like person["name"]
+              When this option is enabled, we are only allowed to get properties declared by <b>index signature</b> with <b>bracketed</b> element access syntax like person["name"]
             </div>
             <div class="item">
               <ul>
@@ -149,12 +149,12 @@
               <ul>
                 <li>
                   <div class="item">
-                    Previously, if _first was never used later on, TypeScript would issue an error under noUnusedLocals.
+                    Previously, if a destructured variable was never used later on, TypeScript would issue an error if the option <b>noUnusedLocals</b> is enabled.
                   </div>
                 </li>
                 <li>
                   <div class="item">
-                    Now, TypeScript will recognize that _first was intentionally named with an underscore because there was no intent to use it.
+                    Now, TypeScript will recognize that <b>_first</b> was intentionally named with an <b>underscore</b> because there was no intent to use it.
                   </div>
                   <div class="item">
                     <app-code-container
@@ -169,7 +169,7 @@
           <li>
             <div class="item">
               <b>
-                abstract Construct Signatures:
+                Abstract Construct Signatures:
                 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#abstract-construct-signatures">
                   (reference)
                 </a>
@@ -179,7 +179,7 @@
               <ul>
                 <li>
                   <div class="item">
-                    We can not assign an abstract class to anything that expects a construct signature. It is overly-restrictive in case we want to write a subclass of Ctor.
+                    Previously, we could not assign an abstract class to anything that expects a construct signature.
                   </div>
                   <div class="item">
                     <app-code-container
@@ -190,7 +190,7 @@
                 </li>
                 <li>
                   <div class="item">
-                    In v12, we are allowed to specify an abstract modifier on constructor signatures.
+                    Now, we are allowed to complete it by specifying an abstract modifier on constructor signatures.
                   </div>
                   <div class="item">
                     <app-code-container
@@ -201,19 +201,22 @@
                 </li>
                 <li>
                   <div class="item">
-                    The benefit is that it allows us to write mixin factories in a way that supports abstract classes. For example, in the following code snippet, we’re able to use the mixin function withStyles with the abstract class SuperClass.
+                    The benefit is that it allows us to write mixin factories to return abstract classes.
+                  </div>
+                  <div class="item">
+                    For example, in the following code snippet, we’re able to use the mixin function withStyles with the abstract class SuperClass.
                   </div>
                   <div class="item">
                     <app-code-container
                       [code]="mixin"
-                      [languages]="['typescript', 'html']">
+                      [languages]="['typescript']">
                     </app-code-container>
                   </div>
                 </li>
               </ul>
             </div>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </app-section-container>

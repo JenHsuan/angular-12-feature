@@ -7,7 +7,7 @@
     <div class="title" id="introduction" title>Introduction</div>
     <div class="description-container">
       <div class="item">
-        There are a few deprecations in Angular 12.
+        There are a few deprecations in v12.
       </div>
       <div class="item">
         <ol>
@@ -19,9 +19,9 @@
               <ul>
                 <li>
                   <div class="item">
-                    <a href="https://profound-kangaroo-9db0c6.netlify.app/#/breaking-changes">
+                    In the future, <a href="https://profound-kangaroo-9db0c6.netlify.app/#/breaking-changes">
                       v13
-                    </a> will stop supoorting IE 11.
+                    </a> will stop supporting IE 11.
                   </div>
                 </li>
               </ul>
@@ -29,14 +29,13 @@
           </li>
           <li>
             <div class="item">
-              v12 Moves closer to <b>Ivy everywhere:</b>
-              the <b>View Engine</b> is deprecated and new projects will use <b>Ivy</b> by default.
+              v12 moves closer to <b>Ivy everywhere</b>.
             </div>
             <div class="item">
               <ul>
                 <li>
                   <div class="item">
-                    Before, v12 we uses --enableIvy to enable Ivy. In v12, we don't need this flag anymore. 
+                    Before v12, Angular used <b>View Engine</b> as compiler by the default and we have to use <b>--enableIvy</b> to enable <b>Ivy</b>. 
                   </div>
                   <div class="item">
                     <app-code-container
@@ -47,14 +46,10 @@
                 </li>
                 <li>
                   <div class="item">
-                    <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
-                      v13
-                    </a> will remove the View Enginee and ngcc.
+                    In v12, new projects are enabled <b>Ivy</b> by default and the <b>View Engine</b> is deprecated. 
                   </div>
-                </li>
-                <li>
                   <div class="item">
-                    For library developers, they could update the tsconfig.lib.prod.json if they're not ready yet.
+                    We don't need <b>--enableIvy</b> anymore but library developers could still disable <b>Ivy</b> if they're not ready yet.
                   </div>
                   <div class="item">
                     <app-code-container
@@ -63,19 +58,25 @@
                     </app-code-container>
                   </div>
                 </li>
+                <li>
+                  <div class="item">
+                    In the future, <a href="https://profound-kangaroo-9db0c6.netlify.app/#/deprecations">
+                      v13
+                    </a> will remove the <b>View Engine</b> and <b>ngcc</b>. <b>(so-called Ivy everywhere)</b>
+                  </div>
+                </li>
               </ul>
             </div>
           </li>
           <li>
             <div class="item">
-              <a href="https://angular.io/api/core/ContentChildren">ContentChildren</a>:
-              the emitDistinctChangesOnly option is deprecated. 
+              <a href="https://angular.io/api/core/ContentChildren">ContentChildren</a>
             </div>
             <div class="item">
               <ul>
                 <li>
                   <div class="item">
-                    When the emitDistinctChangesOnly is false, the change observable will emit even there is no changes (the default value is true).
+                    Before, when the <b>emitDistinctChangesOnly</b> is false, the change observable will emit even there is no changes (the default value is true).
                   </div>
                   <div class="item">
                     <app-code-container
@@ -85,6 +86,9 @@
                   </div>
                 </li>
                 <li>
+                  <div class="item">
+                    In v12, the <b>emitDistinctChangesOnly</b> option is deprecated. 
+                  </div>
                   <div class="item">
                     In the following example, the child component won't print any logs until the items change.
                   </div>
@@ -119,50 +123,59 @@
   </app-section-container>
 
   <app-section-container>
-    <div class="title" id="differencesbetweenviewengineeandivy" title>
-      Differences between View Enginee and Ivy
+    <div class="title" id="differencesbetweenviewengineandivy" title>
+      Differences between View Engine and Ivy
     </div>
     <div class="description-container">
+      <div class="item">
+        <app-code-container
+          [code]="angularExampleTemplate"
+          [languages]="['html']">
+        </app-code-container>
+      </div>
+      <div class="item">
+        <app-code-container
+          [code]="angularExampleComponent"
+          [languages]="['typescript']">
+        </app-code-container>
+      </div>
       <div class="item">
         <ul>
           <li>
             <div class="item">
-              Example code 
-              <a href="https://browserperson.medium.com/from-view-engine-to-ivy-rendering-in-angular-a81d9eb8199b">
-                (reference)
-              </a>
-            </div>
-            <div class="item">
-              <app-code-container
-                [code]="angularExampleCode"
-                [languages]="['typescript', 'html']">
-              </app-code-container>
-            </div>
-          </li>
-          <li>
-            <div class="item">
               <b>
-                View Enginee (previous rendering and compilation pipeline)
+                View Engine (previous rendering and compilation pipeline)
               </b> 
             </div>
             <div class="item">
-              <ul>
+              The workflow contains a few phases.
+            </div>
+            <div class="item">
+              <ol>
                 <li>
                   <div class="item">
-                    The view enginee first generates bindings (template data) through template HTMLs and TypeScript properties. (allocate memory)
+                    The view engine first generates <b>template data</b>(bindings) through <b>template HTMLs</b> and <b>TypeScript properties</b>. 
                   </div>
                 </li>
                 <li>
                   <div class="item">
-                    All bindings will be re-evaluated when is a change detection (so-called dirty-checking). The updated bindings will be marked as updated.
+                    All <b>template data</b> will be re-evaluated when is a change detection (so-called dirty-checking). The updated <b>template data</b> will be marked as updated.
                   </div>
                 </li>
                 <li>
                   <div class="item">
-                    The interpreter will interprete the template data and transformed into DOM. It makes decisions on which operations to run.
+                    The <b>interpreter</b> will interprete the <b>template data</b> and transformed into <b>DOM</b>. It makes decisions on which operations to run.
                   </div>
                 </li>
-              </ul>
+              </ol>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <img src="../../assets/image/view_engine.png" alt="">
+              </div>
+            </div>
+            <div class="item">
+              (taken from ngConf-2018 keynote)
             </div>
           </li>
           <li>
@@ -172,18 +185,32 @@
               </b>
             </div>
             <div class="item">
-              <ul>
+              The workflow contains a few phases.
+            </div>
+            <div class="item">
+              <ol>
                 <li>
                   <div class="item">
-                    Instead of generating template data and passing it into an interpreter, template instructions a set of template instructions is now generated directly.
+                    Instead of generating template data and passing it into an interpreter, Ivy generates through a set of <b>template instructions</b> throgh <b>template HTMLs</b> and <b>TypeScript properties</b>.
                   </div>
                 </li>
                 <li>
                   <div class="item">
-                    The template instructions are where the logic that instantiates components, creates DOM nodes, and runs change detection.
+                    The <b>template instructions</b> are where the logic that instantiates components, creates DOM nodes, and runs change detection.
+                  </div>
+                  <div class="item">
+                    The <b>template instructions</b> incrementally updates the real DOM in-place when data changes
                   </div>
                 </li>
-              </ul>
+              </ol>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <img src="../../assets/image/ivy_alone.png" alt="">
+              </div>
+            </div>
+            <div class="item">
+              (taken from ngConf-2018 keynote)
             </div>
           </li>
           <li>
@@ -191,25 +218,17 @@
               <b>ngcc</b>
             </div>
             <div class="item">
-              The ngcc is the way to compile View Engine libraries so that Ivy applications can consume them.
+              The ngcc is the way to compile <b>View Engine</b> libraries so that <b>Ivy</b> applications can consume them.
             </div>
           </li>
         </ul>
-      </div>
-      <div class="item">
-        <div class="image-container">
-          <img src="../../assets/image/ivy.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        (taken from ngConf-2018 keynote)
       </div>
     </div>
   </app-section-container>
   
   <app-section-container>
-    <div class="title" id="incrementaldom" title>
-      Incremental DOM
+    <div class="title" id="incrementaldomwithivy" title>
+      Incremental DOM with Ivy
     </div>
     <div class="description-container">
       <div class="item">
@@ -239,7 +258,7 @@
               <ul>
                 <li>
                   <div class="item">
-                    In incremental DOM, a component will only be used when it references the <b>template instruction</b> generated through the @Directive like @Component directive.
+                    In incremental DOM, a component will only be used when it references the <b>template instruction</b> generated through the <b>@Directive</b> like <b>@Component</b> directive.
                   </div>
                 </li>
                 <li>
@@ -269,7 +288,7 @@
     </div>
     <div class="description-container">
       <div class="item">
-        To enable Ivy for existed applications before v12, we have to do the following steps. 
+        There are a few steps to enable Ivy before v12. 
       </div>
       <div class="item">
         <ol>
@@ -281,7 +300,7 @@
               </app-code-container>
             </div>
           </li>
-          <li>Update the angular.json to enable aot
+          <li>Update the angular.json to enable AOT <a href="https://angular.io/guide/aot-compiler">(Ahead-of-time compilation)</a>
             <div class="item">
               <app-code-container
                 [code]="angularJson"
@@ -304,7 +323,7 @@
             <div class="item">
               <app-code-container
                 [code]="ngNew"
-                [languages]="['typescript', 'html']">
+                [languages]="['html']">
               </app-code-container>
             </div>
           </li>

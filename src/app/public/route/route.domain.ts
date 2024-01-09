@@ -39,7 +39,7 @@ export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.BREAKING_CHANGE, 'Breaking Changes'],
   [ROUTE_TYPE.DEPRECATIONS, 'Deprecations'],
   [ROUTE_TYPE.NOTES, 'Minor Features'],
-  [ROUTE_TYPE.DOCUMENTS, 'Official Documents'],
+  [ROUTE_TYPE.DOCUMENTS, 'About This Website'],
   [ROUTE_TYPE.I18N_TRANSITION, 'Bugfix - i18n message ID transition'],
   [ROUTE_TYPE.DEBUGGING_PLAYLIST, 'Instructions - [Debugging] Angular Error Messages'],
   [ROUTE_TYPE.NULLISH_COALESCING, 'Feature - Nullish Coalescing'],

@@ -46,6 +46,7 @@ export class DebuggingListComponent {
   export class AppComponent {
     loading = true;
     ngAfterViewInit() {
+      //create a new setTimeOut
       setTimeOut(() => {
         loading = false;
       }, 0);

@@ -10,26 +10,23 @@
         Before v12, there is no way to configure interceptors in <b>HttpClient on per request basis</b> for customizing.
       </div>
       <div class="item">
-        Suppose that we have an interceptor to alert the error message if the proxy is not ready.
+        For example, we have an interceptor to alert the error message when the status code of the response is 404.
+      </div>
+      <div class="item">
+        <ul>
+          <li>
+            All response of requests will be applied to this interceptor.
+          </li>
+          <li>
+            How do we bypass this interceptor for some requests?
+          </li>
+        </ul>
       </div>
       <div class="item">
         <app-code-container
           [code]="legacyInterceptor"
           [languages]="['typescript', 'html']">
         </app-code-container>
-      </div>
-      <div class="item">
-        There are a few questions.
-      </div>
-      <div class="item">
-        <ol>
-          <li>
-            All response will be applied to this interceptor.
-          </li>
-          <li>
-            How do we bypass this interceptor for some requests?
-          </li>
-        </ol>
       </div>
     </div>
   </app-section-container>
@@ -38,7 +35,7 @@
     <div class="title" id="passmetadatatointerceptors" title>Pass Metadata to Interceptors</div>
     <div class="description-container">
       <div class="item">
-        In v12, we are allowed to customize HttpInterceptor by passing data through HttpContext. 
+        In v12, we are abled to customize HttpInterceptor by passing data through HttpContextToken. 
         <a href="https://github.com/angular/angular/pull/25751">(pull request)</a>. 
         There are a few steps to pass metadata to the interceptor.
       </div>
@@ -48,7 +45,7 @@
             <div class="item">Create a 
               <a href="https://angular.io/api/common/http/HttpContextToken">
                 HttpContextToken
-              </a>
+              </a> for passing a boolean flag to the interceptor.
             </div>
             <div class="item">
               <app-code-container
@@ -58,10 +55,19 @@
             </div>
           </li>
           <li>
-            <div class="item">Create a new interceptor</div>
+            <div class="item">Create a new interceptor and customize the logic according to the value of the HttpContextToken</div>
             <div class="item">
               <app-code-container
                 [code]="newInterceptor"
+                [languages]="['typescript']">
+              </app-code-container>
+            </div>
+          </li>
+          <li>
+            <div class="item">Import the interceptor in the app.module.ts</div>
+            <div class="item">
+              <app-code-container
+                [code]="importToAppModule"
                 [languages]="['typescript']">
               </app-code-container>
             </div>
@@ -97,15 +103,20 @@
   <app-section-container>
     <div class="title" id="demo" title>Demo</div>
     <div class="demo-container">
-      <div class="button-container">
-        <button class="export" (click)="printFromServer(true)">
-          Export PDF from server 
-        </button>    
+      <div class="item">
+        Please click the following buttons to see the difference.
       </div>
-      <div class="button-container">
-        <button class="export" (click)="printFromServer(false)">
-          Export PDF from server (alert)
-        </button>    
+      <div class="item">
+        <div class="button-container">
+          <button class="export" (click)="printFromServer(true)">
+            Export PDF from server 
+          </button>    
+        </div>
+        <div class="button-container">
+          <button class="export" (click)="printFromServer(false)">
+            Export PDF from server (alert)
+          </button>    
+        </div>
       </div>
     </div>  
   </app-section-container>

@@ -11,8 +11,8 @@ export class DeprecationsComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.DEPRECATIONS);
   sectionTitles = [
     "Introduction",
-    "Differences between View Enginee and Ivy",
-    "Incremental DOM",
+    "Differences between View Engine and Ivy",
+    "Incremental DOM with Ivy",
     "Enable Ivy for applications before v12",
     "Reference"
   ];
@@ -90,6 +90,24 @@ export class DeprecationsComponent {
   `;
 
   emitDistinctChangesOnly = `
+  //parent component
+  export class DeprecationsComponent {
+    items: number[] = [];
+    cnt = 0;
+    add() {
+      this.items.push(this.cnt++);
+    }
+  }
+
+  //parent template
+  //when the user clicks the button, the items will change
+  <button (click)="add()">add</button>
+  <app-deprecations-content-children #itemWrapper>
+    <div *ngFor="let item of items" #item>
+      {{ item }}
+    </div>
+  </app-deprecations-content-children>
+
   //child component
   export class DeprecationsContentChildrenComponent {
     @ContentChildren('item') 
@@ -102,22 +120,6 @@ export class DeprecationsComponent {
       });
     }
   }
-
-  //parent component
-  export class DeprecationsComponent {
-    cnt = 0;
-    add() {
-      this.items.push(this.cnt++);
-    }
-  }
-
-  //parent template
-  <button (click)="add()">add</button>
-  <app-deprecations-content-children #itemWrapper>
-    <div *ngFor="let item of items" #item>
-      {{ item }}
-    </div>
-  </app-deprecations-content-children>
   `
 
   enableIvy = `
@@ -190,21 +192,17 @@ export class DeprecationsComponent {
   ng new Angular11Project --enable-ivy
   `;
 
-  angularExampleCode = `
+  angularExampleTemplate  = `
+  <!-- template HTML -->
+  <div>
+    <span>{{title}}</span>
+    <app-child *ngIf="show"></app-child>
+  </div>
+  `;
+
+  angularExampleComponent = `
   import { Component } from '@angular/core';
 
-  //@Component directive
-  @Component({
-    selector: 'app-root',
-    template: '
-      <!-- template HTML -->
-      <div>
-        <span>{{title}}</span>
-        <app-child *ngIf="show"></app-child>
-      </div>
-    ',
-    styles: []
-  })
   export class AppComponent {
     //Typecript properties
     title = 'example';
